@@ -45,5 +45,12 @@ namespace Reborn1985.M1
 
         // Only called by editor/development smoke verification, never by a gameplay UI.
         public void SetVerificationInput(Vector2? value) { verificationInput = value; }
+        public void RestorePose(Vector2 position, Vector2 facing)
+        {
+            input=Vector2.zero; verificationInput=null; Body.linearVelocity=Vector2.zero;
+            Body.position=position; transform.position=new Vector3(position.x,position.y,transform.position.z);
+            Facing=facing.normalized;
+            if (facingMarker!=null) facingMarker.localRotation=Quaternion.Euler(0,0,Mathf.Atan2(Facing.y,Facing.x)*Mathf.Rad2Deg-90f);
+        }
     }
 }

@@ -1,0 +1,674 @@
+{
+    "phase": "write",
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "normalSavePath": "C:/Users/User/AppData/LocalLow/QigaiPrototype/Reborn1985\\Saves\\save.json",
+    "passed": true,
+    "checks": [
+        {
+            "name": "Fresh opening: one protected letter, zero cash, first day",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Non-blocking opening shown once, reading not forced",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Empty-handed player freely reaches Linshen before scavenging or reading",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-01 insufficient cash changes no meal/cash state",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Accept one helper task via actual UI",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-03 save before completing helper task",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-02 completing C-04 gives one meal, no cash",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "20 confirmation repeats cannot issue additional helper meals",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-03 save after helper reward",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-03 actual pre-reward file restores unclaimed state consistently",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": false,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Restored pre-reward state can complete exactly one helper meal",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-03 post-reward file reload cannot redeem again",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "M2 base route remains 3000g",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 3000,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Save real 3kg backpack before any sale",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 3000,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Change saved backpack by dropping one paper",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 2000,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Pre-sale load restores all 3kg and removes later ground copy",
+            "passed": true,
+            "cashCents": 0,
+            "grams": 3000,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "M3 first sale remains44 cents",
+            "passed": true,
+            "cashCents": 44,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Post-sale disk restore keeps44 cents, four sold identities and no pending quote",
+            "passed": true,
+            "cashCents": 44,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Cancel breakfast view does not debit or consume food",
+            "passed": true,
+            "cashCents": 44,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 0,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "L-01 buy26c breakfast after44c income leaves18c",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Repeated purchase callback cannot duplicate current meal or debit",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Post-breakfast disk restore keeps18 cents and exactly one paid meal",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": false,
+            "kettleObserved": false
+        },
+        {
+            "name": "Optional letter reading retains protected item and zero weight",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": false
+        },
+        {
+            "name": "Optional environment opens A-02",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": false
+        },
+        {
+            "name": "Optional environment opens A-03",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": false
+        },
+        {
+            "name": "Optional environment opens B-01",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": false
+        },
+        {
+            "name": "Optional environment opens E-01",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "All environment and old-kettle clues recorded without linear gates",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Clue interactions add neither goods nor cash",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Drop real searched paper before saving",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Save while one ground item exists",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Live state can re-pick the saved ground item",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 1000,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 0,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Loading restores ground OR backpack ownership, never both",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Repeat load reconstructs exactly one ground visual 0",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Repeat load reconstructs exactly one ground visual 1",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Repeat load reconstructs exactly one ground visual 2",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 1,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Free original-bedding rest advances day, preserves money and helper flag",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 2,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Repeated rest confirmation does not skip extra days",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 2,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "M4 rest does not pre-implement M5 refresh/cleanup",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 2,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Final saved state and backup contain same complete progress",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 2,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        },
+        {
+            "name": "Writer exits with validated full state; reader must launch a new process",
+            "passed": true,
+            "cashCents": 18,
+            "grams": 0,
+            "day": 2,
+            "paidMeals": 1,
+            "ground": 1,
+            "letters": 1,
+            "helpClaimed": true,
+            "letterRead": true,
+            "kettleObserved": true
+        }
+    ],
+    "errors": [],
+    "screenshots": [
+        "01-no-money-breakfast.png",
+        "02-help-claimed.png",
+        "03-breakfast-18c.png",
+        "04-letter-summary.png",
+        "05-clues.png",
+        "06-free-rest.png",
+        "07-saved-day2.png"
+    ],
+    "finalState": {
+        "version": 1,
+        "scene": "M1Greybox",
+        "parameters": "M4:5000:1000:500:3000:12:20:16:26",
+        "position": {
+            "x": 18.0,
+            "y": 15.75
+        },
+        "facing": {
+            "x": 0.8944271802902222,
+            "y": 0.4472135901451111
+        },
+        "run": {
+            "schemaVersion": 3,
+            "inventory": [
+                {
+                    "unitId": "story-mother-letter",
+                    "originPointId": "opening",
+                    "kind": 3
+                }
+            ],
+            "claimedSourceIds": [
+                "B-02",
+                "D-01",
+                "D-02",
+                "D-03",
+                "F-01"
+            ],
+            "groundDrops": [
+                {
+                    "unit": {
+                        "unitId": "F-01",
+                        "originPointId": "F-01",
+                        "kind": 0
+                    },
+                    "position": {
+                        "x": 7.718717575073242,
+                        "y": 9.609358787536621
+                    },
+                    "createdDay": 1
+                }
+            ],
+            "cashCents": 18,
+            "scrapIncomeCents": 44,
+            "inventoryRevision": 8,
+            "soldUnits": [
+                {
+                    "unitId": "B-02",
+                    "originPointId": "B-02",
+                    "kind": 0
+                },
+                {
+                    "unitId": "D-01",
+                    "originPointId": "D-01",
+                    "kind": 0
+                },
+                {
+                    "unitId": "D-02",
+                    "originPointId": "D-02",
+                    "kind": 1
+                },
+                {
+                    "unitId": "D-03",
+                    "originPointId": "D-03",
+                    "kind": 1
+                }
+            ],
+            "receipts": [
+                {
+                    "sequence": 1,
+                    "cashBefore": 0,
+                    "cashAfter": 44,
+                    "incomeCents": 44,
+                    "totalGrams": 3000,
+                    "unitIds": [
+                        "B-02",
+                        "D-01",
+                        "D-02",
+                        "D-03"
+                    ],
+                    "quantities": [
+                        2,
+                        2,
+                        0
+                    ],
+                    "grams": [
+                        2000,
+                        1000,
+                        0
+                    ],
+                    "centsPerKg": [
+                        12,
+                        20,
+                        16
+                    ],
+                    "lineCents": [
+                        24,
+                        20,
+                        0
+                    ]
+                }
+            ],
+            "life": {
+                "dayIndex": 2,
+                "purchasedMeals": 1,
+                "mealExpenseCents": 26,
+                "helpOffered": true,
+                "helpCompleted": true,
+                "helpMealClaimed": true,
+                "openingSeen": true,
+                "letterRead": true,
+                "yearRead": true,
+                "noticeRead": true,
+                "puddleObserved": true,
+                "kettleObserved": true,
+                "residentTalked": true
+            }
+        }
+    },
+    "inputMethod": "Actual WindowsPlayer drives same Rigidbody2D, E edge, life/UI and save handlers. Physical keyboard/mouse not manually operated.",
+    "captureMethod": "Live camera plus camera-space uGUI, no mock scenes or compositing."
+}

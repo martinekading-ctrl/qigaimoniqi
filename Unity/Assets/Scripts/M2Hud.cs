@@ -13,7 +13,10 @@ namespace Reborn1985.M2
         [SerializeField] private Camera view;
         [SerializeField] private string stageTitle = "重生80年代 · M2 拾荒原型";
         public bool InventoryInputBlocked { get; set; }
+        public bool LifeInputBlocked { get; set; }
         public Func<string> ContextPrompt { get; set; }
+        public Func<string> LifeContextPrompt { get; set; }
+        private Action readLetter;
         public Transform CanvasRoot => canvasObject != null ? canvasObject.transform : null;
         public void SetStageTitle(string title) => stageTitle = title;
         private Font font;
@@ -68,7 +71,7 @@ namespace Reborn1985.M2
                 Button button = buttonRect.gameObject.AddComponent<Button>(); button.targetGraphic = image;
                 button.navigation = new Navigation { mode = Navigation.Mode.None };
                 Label(buttonRect, i == 3 ? "受保护" : "丢弃 ×1", 15, 4, 3, 92, 27).alignment = TextAnchor.MiddleCenter;
-                button.onClick.AddListener(() => { selected = index; DropSelected(); });
+                button.onClick.AddListener(() => { selected = index; if(index==3) readLetter?.Invoke(); else DropSelected(); });
                 drops[i] = button;
             }
             summary = Label(bagRect, "", 17, 16, 281, 488, 25);
@@ -85,9 +88,9 @@ namespace Reborn1985.M2
         private void Update()
         {
             if (bag == null) return;
-            if (!InventoryInputBlocked && (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))) SetBagOpen(!BagOpen);
-            if (!InventoryInputBlocked && Input.GetKeyDown(KeyCode.Escape)) SetBagOpen(false);
-            if (!InventoryInputBlocked && BagOpen)
+            if (!InventoryInputBlocked && !LifeInputBlocked && (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))) SetBagOpen(!BagOpen);
+            if (!InventoryInputBlocked && !LifeInputBlocked && Input.GetKeyDown(KeyCode.Escape)) SetBagOpen(false);
+            if (!InventoryInputBlocked && !LifeInputBlocked && BagOpen)
             {
                 for (int i = 0; i < 4; i++)
                     if (Input.GetKeyDown((KeyCode)((int)KeyCode.Alpha1 + i))) { selected = i; RefreshInventory(); }
@@ -95,13 +98,14 @@ namespace Reborn1985.M2
             }
             string nextRegion = game.World.RegionAt(game.Player.Body.position);
             if (region.text != nextRegion) region.text = nextRegion;
-            string nextPrompt = ContextPrompt?.Invoke() ?? game.Prompt(game.Nearest());
+            string nextPrompt = LifeContextPrompt?.Invoke() ?? ContextPrompt?.Invoke() ?? game.Prompt(game.Nearest());
             if (prompt.text != nextPrompt) prompt.text = nextPrompt;
             feedback.transform.parent.gameObject.SetActive(Time.unscaledTime < game.FeedbackUntil);
         }
         public void SetBagOpen(bool open) { if (bag != null) bag.SetActive(open); }
         public void SelectItem(ItemKind kind) { selected = (int)kind; RefreshInventory(); }
         public InteractionResult DropSelected() => game.TryDrop((ItemKind)selected);
+        public void SetLetterReader(Action reader) {readLetter=reader;if(drops[3]!=null){drops[3].GetComponentInChildren<Text>().text=reader==null?"受保护":"阅读";RefreshInventory();}}
         private void RefreshInventory()
         {
             if (weight == null) return;
@@ -112,7 +116,7 @@ namespace Reborn1985.M2
                 ItemKind kind = (ItemKind)i;
                 int count = game.State.Count(kind), grams = game.Settings.Weight(kind);
                 rows[i].text = (i + 1) + " " + M2Settings.Name(kind) + " ×" + count + "    " + M2Settings.Kg(grams) + "    " + M2Settings.Kg(count * grams);
-                drops[i].interactable = i != 3 && count > 0;
+                drops[i].interactable = i == 3 ? readLetter != null : count > 0;
                 rowBackgrounds[i].color = i == selected ? new Color(.25f, .35f, .35f, .98f) : new Color(.12f, .17f, .20f, .96f);
             }
         }

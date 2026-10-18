@@ -35,6 +35,7 @@ namespace Reborn1985.M2
         public event Action Changed;
         public event Action FeedbackChanged;
         public Func<bool> ContextInteraction { get; set; }
+        public Func<bool> LifeInteraction { get; set; }
         internal void NotifyStateChanged() => Changed?.Invoke();
         internal void ShowFeedback(string message, bool error = false) => Report(error ? InteractionResult.Unavailable : InteractionResult.Success, message);
 
@@ -56,6 +57,7 @@ namespace Reborn1985.M2
             if (State == null) return;
             if (interaction.Press(verificationHeld ?? Input.GetKey(KeyCode.E)))
             {
+                if (LifeInteraction?.Invoke() == true) return;
                 if (ContextInteraction?.Invoke() == true) return;
                 M2Pickup target = Nearest();
                 if (target != null) TryInteract(target);
@@ -158,6 +160,27 @@ namespace Reborn1985.M2
         }
         private void RefreshSources()
         { foreach (M2Pickup target in targets) target.ShowState(Available(target)); }
+        internal void ReplaceRunState(M2RunState replacement)
+        {
+            var staged = new List<M2Pickup>();
+            try
+            {
+                foreach (GroundDrop drop in replacement.Snapshot().groundDrops)
+                {
+                    var obj = new GameObject("Restored " + M2Settings.Name(drop.unit.kind),typeof(SpriteRenderer),typeof(M2Pickup));
+                    obj.SetActive(false); obj.transform.SetParent(dropRoot,false);
+                    obj.transform.position=drop.position; obj.transform.localScale=Vector3.one*.65f;
+                    obj.GetComponent<SpriteRenderer>().sprite=dropSprite;
+                    M2Pickup pickup=obj.GetComponent<M2Pickup>(); pickup.Configure(drop.unit.unitId,drop.unit.kind,false,true); staged.Add(pickup);
+                }
+            }
+            catch { foreach (M2Pickup pickup in staged) Destroy(pickup.gameObject); throw; }
+            foreach (M2Pickup old in targets.Where(target=>target.IsDropped).ToArray())
+            { old.gameObject.SetActive(false); targets.Remove(old); Destroy(old.gameObject); }
+            State=replacement;
+            foreach (M2Pickup pickup in staged) { targets.Add(pickup); pickup.gameObject.SetActive(true); }
+            RefreshSources(); Changed?.Invoke();
+        }
         private InteractionResult Report(InteractionResult result, string message)
         {
             Feedback = message;

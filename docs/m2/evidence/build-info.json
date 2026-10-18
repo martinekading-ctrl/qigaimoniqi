@@ -1,0 +1,22 @@
+{
+  "unityVersion": "6000.3.25f1",
+  "editorRevision": "e1dba0a9aba4",
+  "sourceBranch": "codex/m2-scavenging-inventory",
+  "baseMainCommit": "40dccbf",
+  "target": "Windows x64 Mono Development",
+  "buildResult": "Succeeded",
+  "buildBytes": 147099709,
+  "graphicsDevice": "Direct3D11",
+  "runtimePassed": true,
+  "m1EditChecks": 33,
+  "m2EditChecks": 56,
+  "windowsRuntimeChecks": 93,
+  "routeStops": 13,
+  "errors": [],
+  "zipRelativePath": "Unity/Builds/Reborn1985-M2-Windows-x64.zip",
+  "zipBytes": 61823788,
+  "zipSha256": "654eac2e10dcf5fbae03876c11ae3fa81208efc51484d597db326e71a8560640",
+  "manualM2Playtest": "Pending owner keyboard/mouse acceptance",
+  "capture": "Live Windows camera with camera-space uGUI, 1280x720",
+  "stage": "M2 only; M3 not started"
+}

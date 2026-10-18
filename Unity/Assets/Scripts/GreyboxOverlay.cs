@@ -7,9 +7,11 @@ namespace Reborn1985.M1
         [SerializeField] private M1World world;
         [SerializeField] private PlayerMover player;
         [SerializeField] private Camera view;
+        [SerializeField] private bool showScreenOverlay = true;
         private GUIStyle title, body, label, small;
         private Font font;
         public void Configure(M1World map, PlayerMover actor, Camera camera) { world = map; player = actor; view = camera; }
+        public void SetScreenOverlay(bool visible) => showScreenOverlay = visible;
 
         private void Start()
         {
@@ -63,6 +65,7 @@ namespace Reborn1985.M1
 
         private void OnGUI()
         {
+            if (!showScreenOverlay) return;
             if (world == null || player == null || view == null) return;
             if (title == null) InitStyles();
             float scale = Mathf.Max(.65f, Screen.height / 720f);

@@ -23,6 +23,8 @@ namespace Reborn1985.Editor
         [MenuItem("Reborn 1985/M1/Rebuild greybox scene")]
         public static void Generate()
         {
+            if (AssetDatabase.LoadAssetAtPath<Reborn1985.M2.M2Settings>("Assets/Settings/M2Settings.asset") != null)
+                throw new InvalidOperationException("M2 is installed. Legacy M1 reconstruction is disabled to protect the accepted scene; edit the existing scene instead.");
             if (!Application.isBatchMode && !EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo()) return;
             foreach (string folder in new[] { "Assets/Scenes", "Assets/Art/Placeholders", "Assets/Settings" }) Directory.CreateDirectory(folder);
             AssetDatabase.Refresh();

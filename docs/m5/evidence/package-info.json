@@ -1,0 +1,32 @@
+{
+  "file": "Unity/Builds/Reborn1985-M5-Windows-x64.zip",
+  "bytes": 61880489,
+  "sha256": "7b6a158a396399a6217eef484b8481a5f4152cc2ec1cc304d2db15385d2b750c",
+  "files": [
+    {
+      "sha256": "b9fc30bb05ca93a042831974149a681d656963e3e612ecafd9ae826759d739ad",
+      "bytes": 667136,
+      "path": "Reborn1985.exe"
+    },
+    {
+      "sha256": "c02b29b5fcba897f597ef0f5c6248a11436616ed663cd82075184d5dd1dcc76b",
+      "bytes": 84451752,
+      "path": "UnityPlayer.dll"
+    },
+    {
+      "sha256": "baa41e52cb65eaeae639a4535a088c6b1c3c1fa22bfdef0b39be7bcc560c7ec8",
+      "bytes": 174080,
+      "path": "Reborn1985_Data/Managed/Assembly-CSharp.dll"
+    },
+    {
+      "sha256": "88fc75fbe5a130068eaec0d937b683d16f7ce489a02a29ce0b79dc303190456f",
+      "bytes": 1134,
+      "path": "试玩说明.txt"
+    },
+    {
+      "sha256": "bd9924a0d457cf604e40bbd40cd99a06bfe30d3459465b434b9717963d77dce4",
+      "bytes": 1539,
+      "path": "Verification/M4Schema3.json"
+    }
+  ]
+}

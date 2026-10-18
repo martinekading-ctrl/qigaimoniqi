@@ -1,0 +1,56 @@
+PASS M2 service and HUD attached to existing scene
+PASS Exact test weights in integer grams
+PASS M1 position retained A-01
+PASS M1 position retained A-02
+PASS M1 position retained A-03
+PASS M1 position retained A-04
+PASS M1 position retained B-01
+PASS M1 position retained B-02
+PASS M1 position retained D-01
+PASS M1 position retained D-02
+PASS M1 position retained D-03
+PASS M1 position retained D-04
+PASS M1 position retained F-01
+PASS M1 position retained F-02
+PASS M1 position retained F-03
+PASS M1 position retained C-01
+PASS M1 position retained C-04
+PASS M1 position retained G-01
+PASS M1 position retained G-03
+PASS M1 position retained G-04
+PASS M1 position retained E-01
+PASS M1 position retained E-02
+PASS Only seven approved sources; no pickup blocks movement
+PASS Source mapping B-02
+PASS Source mapping D-01
+PASS Source mapping D-02
+PASS Source mapping D-03
+PASS Source mapping F-01
+PASS Source mapping F-02
+PASS Source mapping F-03
+PASS Decorations, NPCs and old kettle remain non-collectible
+PASS One protected zero-weight letter on new run
+PASS Letter cannot drop or generate again
+PASS Collect B-02
+PASS Reject duplicate B-02
+PASS Collect D-01
+PASS Reject duplicate D-01
+PASS Collect D-02
+PASS Reject duplicate D-02
+PASS Collect D-03
+PASS Reject duplicate D-03
+PASS TEST1: two papers and two bottles = 3000 grams
+PASS TEST2: 6000 grams rejected without claiming metal
+PASS Drop removes exactly one paper and 1000 grams
+PASS TEST3: legal choice permits metal at exactly 5000 grams
+PASS Ground re-pick also rejects excess weight
+PASS Full-bag search leaves source unclaimed
+PASS Free capacity for finite searches
+PASS Search each approved pile once
+PASS TEST4: 50 repeated searches produce nothing extra
+PASS TEST5: 100 drop/re-pick cycles conserve units and weight
+PASS All seven claimed resources and letter have unique exclusive ownership
+PASS Snapshot is detached from live state
+PASS Drops do not reset source or search claims
+PASS Cannot drop zero-count item or create negative inventory
+PASS Held interaction triggers once; release required

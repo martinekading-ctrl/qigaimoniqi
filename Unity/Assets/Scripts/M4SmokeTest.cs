@@ -101,8 +101,10 @@ namespace Reborn1985.M4
             yield return Walk(life.InteractionPosition("A-01"));yield return PressE();hud.PrimaryButton.onClick.Invoke();
             Require(game.State.Life.dayIndex==2&&game.State.CashCents==18&&game.State.Life.helpMealClaimed,"Free original-bedding rest advances day, preserves money and helper flag");
             for(int i=0;i<10;i++)life.Confirm();Require(game.State.Life.dayIndex==2,"Repeated rest confirmation does not skip extra days");
-            Require(game.State.Claimed("F-01")&&game.State.GroundCount==1,"M4 rest does not pre-implement M5 refresh/cleanup");
+            Require(!game.State.Claimed("F-01")&&game.State.GroundCount==0&&game.State.ClearedCount==1,"M5 rest clears previous ground and refreshes the next source cycle");
             yield return Capture("06-free-rest.png");life.Close();
+            yield return Walk(Source("F-01").transform.position);yield return PressE();
+            Require(game.TryDrop(ItemKind.Paper)==InteractionResult.Success&&game.State.GroundCount==1&&game.State.ClearedCount==1,"Next-day searched paper is distinct from the expired first-day paper");
             yield return Walk(game.World.RegionEntry("E"));Require(life.SaveNow()&&life.SaveNow(),"Final saved state and backup contain same complete progress");
             File.WriteAllText(Path.Combine(output,"expected.json"),JsonUtility.ToJson(life.Capture(),true));yield return Capture("07-saved-day2.png");
             Require(life.Validate(life.Capture())&&game.State.CashCents==18&&game.State.GroundCount==1,"Writer exits with validated full state; reader must launch a new process");
@@ -117,7 +119,7 @@ namespace Reborn1985.M4
             Require(Vector2.Distance(game.Player.Body.position,expected.position)<.001f&&Vector2.Dot(game.Player.Facing,expected.facing)>.999f,"Position and facing restored across full quit/relaunch");
             Require(game.State.Count(ItemKind.Letter)==1&&game.State.Life.letterRead&&game.State.Life.kettleObserved&&game.State.Life.residentTalked&&game.State.Life.yearRead&&game.State.Life.noticeRead,"Letter and optional clue states survive cold restart");
             Require(game.State.SoldCount==4&&game.State.Snapshot().receipts.Length==1&&game.State.GroundCount==1&&game.State.Count(ItemKind.Paper)==0,"Sold records and ground/backpack exclusivity restored");
-            Require(game.Targets.Count(target=>target.IsDropped&&game.Available(target))==1&&!game.Available(Source("B-02"))&&!game.Available(Source("F-01"))&&game.Available(Source("F-02")),"Claimed/unclaimed sources and exactly one ground object restored");
+            Require(game.Targets.Count(target=>target.IsDropped&&game.Available(target))==1&&game.Available(Source("B-02"))&&!game.Available(Source("F-01"))&&game.Available(Source("F-02")),"Current-day claimed/unclaimed sources and exactly one ground object restored");
             yield return Capture("08-cold-restart-loaded.png");
             yield return Walk(life.InteractionPosition("C-04"));yield return PressE();Require(!life.Confirm()&&game.State.Life.helpMealClaimed&&game.State.CashCents==18,"Already-claimed help cannot issue a second meal after restart");life.Close();
             yield return Walk(Source("F-02").transform.position);yield return PressE();Require(game.State.Count(ItemKind.Bottle)==1&&game.State.TotalGrams==500,"Unclaimed search still produces exactly once after load");

@@ -1,0 +1,2 @@
+# Preserve the exact historical M4 save bytes used by migration verification.
+fixtures/m4-save-schema3.json -text

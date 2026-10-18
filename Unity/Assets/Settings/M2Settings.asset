@@ -18,3 +18,4 @@ MonoBehaviour:
   metalGrams: 3000
   interactionRadius: 0.72
   dropRadius: 0.8
+  sourceRefreshDays: 1

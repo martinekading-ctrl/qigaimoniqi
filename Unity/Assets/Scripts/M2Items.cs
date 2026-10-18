@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Reborn1985.M3;
 using Reborn1985.M4;
+using Reborn1985.M5;
 
 namespace Reborn1985.M2
 {
@@ -15,7 +16,8 @@ namespace Reborn1985.M2
         public string unitId;
         public string originPointId;
         public ItemKind kind;
-        public ItemUnit Copy() => new ItemUnit { unitId = unitId, originPointId = originPointId, kind = kind };
+        public int spawnedDay = 1;
+        public ItemUnit Copy() => new ItemUnit { unitId = unitId, originPointId = originPointId, kind = kind, spawnedDay = spawnedDay };
     }
 
     [Serializable]
@@ -27,17 +29,18 @@ namespace Reborn1985.M2
         public GroundDrop Copy() => new GroundDrop { unit = unit.Copy(), position = position, createdDay = createdDay };
     }
 
-    // Detached transfer data; M4 persists it and M5 will own refresh/cleanup.
+    // Detached transfer data. Current claims, old inventory, sold and cleared units never share IDs.
     [Serializable]
     public sealed class M2RunSnapshot
     {
-        public int schemaVersion = 3;
+        public int schemaVersion = 4;
         public ItemUnit[] inventory;
         public string[] claimedSourceIds;
         public GroundDrop[] groundDrops;
         public long cashCents, scrapIncomeCents;
         public int inventoryRevision;
         public ItemUnit[] soldUnits;
+        public ItemUnit[] clearedUnits;
         public SaleReceipt[] receipts;
         public M4LifeData life;
     }
@@ -50,6 +53,7 @@ namespace Reborn1985.M2
         private readonly Dictionary<string, GroundDrop> ground = new Dictionary<string, GroundDrop>();
         private readonly HashSet<string> claimed = new HashSet<string>();
         private readonly List<ItemUnit> sold = new List<ItemUnit>();
+        private readonly List<ItemUnit> cleared = new List<ItemUnit>();
         private readonly List<SaleReceipt> receipts = new List<SaleReceipt>();
         private int revision;
         private readonly string runToken = Guid.NewGuid().ToString("N");
@@ -58,6 +62,7 @@ namespace Reborn1985.M2
         public long CashCents { get; private set; }
         public long ScrapIncomeCents { get; private set; }
         public int SoldCount => sold.Count;
+        public int ClearedCount => cleared.Count;
         private readonly M2Settings settings;
         public const string LetterId = "story-mother-letter";
         public M2RunState(M2Settings parameters)
@@ -67,17 +72,19 @@ namespace Reborn1985.M2
         }
         public int Count(ItemKind kind) => inventory.Count(unit => unit.kind == kind);
         public int TotalGrams => inventory.Sum(unit => settings.Weight(unit.kind));
-        public bool Claimed(string id) => claimed.Contains(id);
+        public int CurrentCycleDay => M5DailyRules.CycleStart(life.dayIndex,settings.SourceRefreshDays);
+        public bool Claimed(string id) => claimed.Contains(M5DailyRules.UnitId(id,CurrentCycleDay));
         public bool HasDrop(string id) => ground.ContainsKey(id);
         public int GroundCount => ground.Count;
         public bool CanCarry(ItemKind kind) => kind != ItemKind.Letter && TotalGrams <= settings.CapacityGrams - settings.Weight(kind);
 
         public bool TryCollectSource(string source, ItemKind kind)
         {
-            if (string.IsNullOrEmpty(source) || source == LetterId || claimed.Contains(source) || !CanCarry(kind)) return false;
-            if (inventory.Any(unit => unit.unitId == source) || ground.ContainsKey(source)) return false;
-            claimed.Add(source);
-            inventory.Add(new ItemUnit { unitId = source, originPointId = source, kind = kind });
+            if (!M5DailyRules.TryKind(source,out ItemKind expected) || expected!=kind || Claimed(source) || !CanCarry(kind)) return false;
+            string id=M5DailyRules.UnitId(source,CurrentCycleDay);
+            if (inventory.Any(unit => unit.unitId == id) || ground.ContainsKey(id)) return false;
+            claimed.Add(id);
+            inventory.Add(new ItemUnit { unitId = id, originPointId = source, kind = kind, spawnedDay = CurrentCycleDay });
             revision++;
             return true;
         }
@@ -165,7 +172,9 @@ namespace Reborn1985.M2
         public bool Rest()
         {
             if (life.dayIndex >= 100000) return false;
-            life.dayIndex++; return true; // M5 owns resource refresh and old-drop cleanup.
+            // Keep an audit identity for expired ground units; they can never be picked or sold.
+            cleared.AddRange(ground.Values.Select(drop=>drop.unit)); ground.Clear();
+            life.dayIndex++; revision++; return true;
         }
         public void MarkSeen(LifeView view)
         {
@@ -188,6 +197,7 @@ namespace Reborn1985.M2
             foreach (string id in data.claimedSourceIds) state.claimed.Add(id);
             foreach (GroundDrop drop in data.groundDrops) state.ground.Add(drop.unit.unitId,drop.Copy());
             state.sold.AddRange(data.soldUnits.Select(unit=>unit.Copy()));
+            state.cleared.AddRange(data.clearedUnits.Select(unit=>unit.Copy()));
             state.receipts.AddRange(data.receipts.Select(receipt=>receipt.Copy()));
             state.revision=data.inventoryRevision; state.CashCents=data.cashCents; state.ScrapIncomeCents=data.scrapIncomeCents;
             state.life=data.life.Copy();
@@ -199,7 +209,8 @@ namespace Reborn1985.M2
             claimedSourceIds = claimed.OrderBy(id => id, StringComparer.Ordinal).ToArray(),
             groundDrops = ground.Values.OrderBy(drop => drop.unit.unitId, StringComparer.Ordinal).Select(drop => drop.Copy()).ToArray(),
             cashCents = CashCents, scrapIncomeCents = ScrapIncomeCents, inventoryRevision = revision,
-            soldUnits = sold.Select(unit => unit.Copy()).ToArray(), receipts = receipts.Select(receipt => receipt.Copy()).ToArray(), life=life.Copy()
+            soldUnits = sold.Select(unit => unit.Copy()).ToArray(), clearedUnits = cleared.Select(unit=>unit.Copy()).ToArray(),
+            receipts = receipts.Select(receipt => receipt.Copy()).ToArray(), life=life.Copy()
         };
     }
 }

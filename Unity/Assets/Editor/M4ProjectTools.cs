@@ -61,7 +61,8 @@ namespace Reborn1985.Editor
             state.MarkOpeningSeen();
             Require(state.Life.letterRead&&state.Life.yearRead&&state.Life.kettleObserved&&state.Life.residentTalked,"Optional story/clue flags recorded without item rewards");
             Require(state.TryCollectSource("F-01",ItemKind.Paper)&&state.TryDropOne(ItemKind.Paper,session.Game.World.RegionEntry("F"),out _),"Ground unit retains ownership and creation day");
-            Require(state.Rest()&&state.Life.dayIndex==2&&state.CashCents==18&&state.GroundCount==1&&state.Claimed("F-01")&&state.Life.helpMealClaimed,"Basic free rest advances day only; M5 refresh/cleanup not implemented");
+            Require(state.Rest()&&state.Life.dayIndex==2&&state.CashCents==18&&state.GroundCount==0&&!state.Claimed("F-01")&&state.ClearedCount==1&&state.Life.helpMealClaimed,"M5 free rest cleans yesterday ground, refreshes sources and retains helper flag");
+            Require(state.TryCollectSource("F-01",ItemKind.Paper)&&state.TryDropOne(ItemKind.Paper,session.Game.World.RegionEntry("F"),out _),"Fresh next-day unit can be dropped independently of the cleared first-day unit");
             M4SaveData Data(M2RunSnapshot snapshot)=>new M4SaveData{parameters=M4SaveValidation.Signature(weights,prices,settings),position=session.Game.World.RegionEntry("A"),facing=Vector2.down,run=snapshot};
             var data=Data(state.Snapshot());
             Require(session.Validate(data),"Complete food/cash/story/day/ground snapshot validates against real world");

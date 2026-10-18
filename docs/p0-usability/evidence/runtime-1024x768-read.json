@@ -1,0 +1,329 @@
+{
+    "phase": "read",
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "passed": true,
+    "checks": [
+        {
+            "name": "New process does not auto-load or claim its fresh run was saved",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Cold read retains letter/paper/helper and closes temporary controls",
+            "saveStatus": "已读取存档 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Cold read restores exact saved pose",
+            "saveStatus": "已读取存档 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Cold read status reports actual loaded state and is clean",
+            "saveStatus": "已读取存档 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Actual previous M5 save loads with its day4/30c/8cleared/5sold records unchanged",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "UI-only update preserves M5 schema and once-only reward state",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Loaded M5 spawn badge lies inside actual window bounds",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Loaded M5 spawn badge does not cover Asheng or his facing arrow",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Optional guidance remains presentation only on a loaded M5 run",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Re-saving compatible data retains its economic and cleanup ledger",
+            "saveStatus": "已读取存档 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Optional notice remains readable with truthful close-only prompt",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        },
+        {
+            "name": "Reader completes with valid existing gameplay state",
+            "saveStatus": "已保存 · 第4日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 4,
+            "cashCents": 30
+        }
+    ],
+    "errors": [],
+    "screenshots": [
+        "07-cold-read-status.png",
+        "08-m5-save-compatible.png"
+    ],
+    "finalState": {
+        "version": 1,
+        "scene": "M1Greybox",
+        "parameters": "M5:5000:1000:500:3000:12:20:16:26:1",
+        "position": {
+            "x": -4.461942672729492,
+            "y": 5.017838001251221
+        },
+        "facing": {
+            "x": -0.9054691791534424,
+            "y": -0.4244120121002197
+        },
+        "run": {
+            "schemaVersion": 4,
+            "inventory": [
+                {
+                    "unitId": "story-mother-letter",
+                    "originPointId": "opening",
+                    "kind": 3,
+                    "spawnedDay": 1
+                }
+            ],
+            "claimedSourceIds": [
+                "B-02",
+                "B-02@2",
+                "D-01",
+                "D-01@2",
+                "D-02",
+                "D-02@2",
+                "D-03",
+                "D-03@2",
+                "F-01",
+                "F-01@2",
+                "F-01@3",
+                "F-02",
+                "F-03"
+            ],
+            "groundDrops": [],
+            "cashCents": 30,
+            "scrapIncomeCents": 56,
+            "inventoryRevision": 29,
+            "soldUnits": [
+                {
+                    "unitId": "B-02@2",
+                    "originPointId": "B-02",
+                    "kind": 0,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-01@2",
+                    "originPointId": "D-01",
+                    "kind": 0,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-02@2",
+                    "originPointId": "D-02",
+                    "kind": 1,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-03@2",
+                    "originPointId": "D-03",
+                    "kind": 1,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "F-01@3",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 3
+                }
+            ],
+            "clearedUnits": [
+                {
+                    "unitId": "B-02",
+                    "originPointId": "B-02",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-01",
+                    "originPointId": "D-01",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-02",
+                    "originPointId": "D-02",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-03",
+                    "originPointId": "D-03",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-01",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-02",
+                    "originPointId": "F-02",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-03",
+                    "originPointId": "F-03",
+                    "kind": 2,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-01@2",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 2
+                }
+            ],
+            "receipts": [
+                {
+                    "sequence": 1,
+                    "cashBefore": 0,
+                    "cashAfter": 44,
+                    "incomeCents": 44,
+                    "totalGrams": 3000,
+                    "unitIds": [
+                        "B-02@2",
+                        "D-01@2",
+                        "D-02@2",
+                        "D-03@2"
+                    ],
+                    "quantities": [
+                        2,
+                        2,
+                        0
+                    ],
+                    "grams": [
+                        2000,
+                        1000,
+                        0
+                    ],
+                    "centsPerKg": [
+                        12,
+                        20,
+                        16
+                    ],
+                    "lineCents": [
+                        24,
+                        20,
+                        0
+                    ]
+                },
+                {
+                    "sequence": 2,
+                    "cashBefore": 18,
+                    "cashAfter": 30,
+                    "incomeCents": 12,
+                    "totalGrams": 1000,
+                    "unitIds": [
+                        "F-01@3"
+                    ],
+                    "quantities": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "grams": [
+                        1000,
+                        0,
+                        0
+                    ],
+                    "centsPerKg": [
+                        12,
+                        20,
+                        16
+                    ],
+                    "lineCents": [
+                        12,
+                        0,
+                        0
+                    ]
+                }
+            ],
+            "life": {
+                "dayIndex": 4,
+                "purchasedMeals": 1,
+                "mealExpenseCents": 26,
+                "helpOffered": true,
+                "helpCompleted": true,
+                "helpMealClaimed": true,
+                "openingSeen": true,
+                "letterRead": false,
+                "yearRead": false,
+                "noticeRead": true,
+                "puddleObserved": false,
+                "kettleObserved": true,
+                "residentTalked": true
+            }
+        }
+    },
+    "inputMethod": "Actual WindowsPlayer drives original Rigidbody2D, E edge, UI button callbacks and save handlers. No physical keyboard/mouse manual test.",
+    "captureMethod": "Live camera plus camera-space uGUI; no compositing or mock results."
+}

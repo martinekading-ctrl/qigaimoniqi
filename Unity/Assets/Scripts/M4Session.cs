@@ -20,11 +20,18 @@ namespace Reborn1985.M4
         private string activePoint;
         public M2Scavenging Game=>game;
         public M4Settings Settings=>settings;
+        public M3Trade Trade=>trade;
         public M4SaveStore Store { get; private set; }
         public LifeView View { get; private set; }
         public bool IsOpen=>View!=LifeView.None;
         public bool Committed=>committed;
         public string ResultText { get; private set; }
+        private string persistedRun,persistenceAction,persistenceIssue;
+        private Vector2 persistedPosition,persistedFacing;
+        private int persistedDay;
+        private bool runDirty,backupLoaded;
+        public bool HasUnsavedChanges=>persistedRun==null || runDirty || Vector2.Distance(game.Player.Body.position,persistedPosition)>.025f || Vector2.Dot(game.Player.Facing,persistedFacing)<.999f;
+        public string SaveStatusText=>persistenceIssue??(persistedRun==null?"尚未手动保存 · F5保存":backupLoaded?"已从备份读取 · 建议F5保存":HasUnsavedChanges?"有未保存进度 · F5保存":persistenceAction+" · 第"+persistedDay+"日");
         public string DateText=>"1985年 · 第"+game.State.Life.dayIndex+"日 · 清晨";
         public event Action Changed;
         public void Configure(M2Scavenging inventory,M3Trade merchant,M4Settings content) {game=inventory;trade=merchant;settings=content;}
@@ -43,6 +50,7 @@ namespace Reborn1985.M4
             game.Initialize();trade.Initialize();
             foreach(GreyboxPoint point in game.World.Points) points.Add(point.Id,point);
             Store=new M4SaveStore(Path.Combine(Application.persistentDataPath,"Saves"),NormalizeSave);
+            game.Changed+=UpdateRunDirty;
             game.LifeInteraction=HandleInteraction; initialized=true;
         }
         public Vector2 InteractionPosition(string id)=>id=="C-01"?game.World.RegionEntry("C"):(Vector2)points[id].transform.position;
@@ -62,9 +70,18 @@ namespace Reborn1985.M4
             { if(!Near(id)) continue; float next=Vector2.Distance(game.Player.Body.position,InteractionPosition(id)); if(next<distance){distance=next;best=id;} }
             return best;
         }
+        public string NearbyPointId=>NearestPoint();
         public string ContextPrompt()
         {
-            if(IsOpen) return "Enter 确认当前操作 · Esc 返回探索";
+            if(IsOpen)
+            {
+                if(committed) return "本次操作已完成 · Esc 返回探索";
+                if(View==LifeView.Load) return "Enter 读取存档 · Esc 取消";
+                if(View==LifeView.Breakfast) return "Enter 购买基础餐 · "+(!game.State.Life.helpMealClaimed&&game.State.CashCents<settings.BreakfastCents?"可用鼠标询问帮工 · ":"")+"Esc 返回";
+                if(View==LifeView.Rest) return "Enter 免费休息到次日 · Esc 取消";
+                if(View==LifeView.Help && game.State.Life.helpOffered && !game.State.Life.helpMealClaimed) return "Enter 完成整理并领取一次餐食 · Esc 返回";
+                return "Esc 返回探索 · 不需要完成阅读才能离开";
+            }
             string id=NearestPoint();
             return id==null?null:"[E] "+id+" · "+(id=="A-01"?"原铺盖，免费休息":id=="A-02"?"查看旧报纸":id=="A-03"?"观察积水":id=="B-01"?"查看公告":id=="C-01"?"林婶早餐摊":id=="C-04"?"整理摊具 / 帮工":id=="E-01"?"观察旧搪瓷水壶":"与旧货居民交谈");
         }
@@ -101,7 +118,7 @@ namespace Reborn1985.M4
             {
                 case LifeView.Breakfast:
                     ok=game.State.TryBuyBreakfast(settings.BreakfastCents);
-                    ResultText=ok?"付过钱，你吃下一份基础餐，身上渐渐暖了些。现金剩 "+M3TradeSettings.Yuan(game.State.CashCents)+"。":"钱还不够，本次未扣款。可以去拾荒，或询问一次性帮工。";break;
+                    ResultText=ok?"付过钱，你吃下一份基础餐，身上渐渐暖了些。现金剩 "+M3TradeSettings.Yuan(game.State.CashCents)+"。":game.State.Life.helpMealClaimed?"钱还不够，本次未扣款。可继续拾荒；当天资源耗尽时，回原铺盖免费休息。":game.State.Life.helpOffered?"钱还不够，本次未扣款。可先到 C-04 完成已接受的帮工换餐。":"钱还不够，本次未扣款。可以去拾荒，或询问一次性帮工。";break;
                 case LifeView.Help:
                     ok=game.State.CompleteHelp();
                     ResultText=ok?"你整理好摊具，领到并吃下一份基础餐。这次帮工不发现金，只能领取一次。":game.State.Life.helpMealClaimed?"这次帮工餐食已经领取，不能再领。":"先到林婶面前了解帮工，再来整理。";break;
@@ -125,25 +142,34 @@ namespace Reborn1985.M4
         {var cell=game.World.Ground.WorldToCell(value);return game.World.Ground.HasTile(cell)&&!game.World.Obstacles.HasTile(cell)&&!Physics2D.OverlapCircle(value,radius,M1World.SolidMask);}
         public bool SaveNow()
         {
-            try{Store.Save(Capture(),Validate);game.ShowFeedback("已保存位置、现金、物品和事件进度。F9可读取。" );Changed?.Invoke();return true;}
+            try{M4SaveData data=Capture();Store.Save(data,Validate);MarkPersisted(data,false,"已保存");game.ShowFeedback("已保存位置、现金、物品和事件进度。F9可读取。" );Changed?.Invoke();return true;}
             catch(Exception ex) when(ex is IOException || ex is InvalidDataException || ex is UnauthorizedAccessException || ex is ArgumentException)
-            {game.ShowFeedback("保存失败，原存档保留："+ex.Message,true);return false;}
+            {persistenceIssue="保存失败 · 原存档保留";game.ShowFeedback("保存失败，原存档保留："+ex.Message,true);Changed?.Invoke();return false;}
         }
         public bool LoadNow()
         {
             if(!Store.Load(Validate,out M4SaveData data,out bool backup,out string error))
-            {game.ShowFeedback("未能读取有效存档，当前进度保留："+error,true);return false;}
+            {
+                Debug.LogWarning("P0 load refused: "+error);
+                persistenceIssue="读取失败 · 当前进度保留";Changed?.Invoke();
+                game.ShowFeedback(File.Exists(Store.Path)||File.Exists(Store.Path+".bak")?"存档和备份无法读取，当前进度保留。可以另行检查文件，或按F5保存当前进度。":"还没有可读取的存档，当前进度保留。请先按F5保存。",true);return false;
+            }
             M2RunState candidate=M2RunState.RestoreValidated(data.run,game.Settings,trade.Settings,settings);
             trade.Close();Close();game.ReplaceRunState(candidate);game.Player.RestorePose(data.position,data.facing);
             Physics2D.SyncTransforms();Camera.main.GetComponent<CameraFollow>().Snap();
+            MarkPersisted(data,backup,"已读取存档");
             game.ShowFeedback(backup?"主存档不可用，已恢复上一份有效备份。":"已恢复位置、现金、物品和事件进度。");Changed?.Invoke();return true;
         }
         private M4SaveData NormalizeSave(M4SaveData data)=>M5SaveUpgrade.Normalize(data,game.Settings,trade.Settings,settings);
+        private void MarkPersisted(M4SaveData data,bool backup,string action)
+        {persistedRun=JsonUtility.ToJson(data.run);persistedPosition=data.position;persistedFacing=data.facing;persistedDay=data.run.life.dayIndex;runDirty=false;backupLoaded=backup;persistenceAction=action;persistenceIssue=null;}
+        private void UpdateRunDirty(){if(persistedRun!=null)runDirty=JsonUtility.ToJson(game.State.Snapshot())!=persistedRun;}
         // Tests use isolated directories and never touch the player's normal save slot.
         public void SetVerificationSaveDirectory(string directory)
-        {if(Debug.isDebugBuild && Environment.GetCommandLineArgs().Any(arg=>arg=="-m4-smoke"||arg=="-m5-smoke")) Store=new M4SaveStore(directory,NormalizeSave);}
+        {if(Debug.isDebugBuild && Environment.GetCommandLineArgs().Any(arg=>arg=="-m4-smoke"||arg=="-m5-smoke"||arg=="-p0-usability-smoke")) Store=new M4SaveStore(directory,NormalizeSave);}
         private void Update(){if(IsOpen && activePoint!=null && !Near(activePoint)) Close();}
         private void OnDisable(){if(game!=null && game.LifeInteraction==HandleInteraction)game.LifeInteraction=null;}
         private void OnEnable(){if(initialized)game.LifeInteraction=HandleInteraction;}
+        private void OnDestroy(){if(game!=null)game.Changed-=UpdateRunDirty;}
     }
 }

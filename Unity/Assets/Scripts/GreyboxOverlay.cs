@@ -15,6 +15,8 @@ namespace Reborn1985.M1
 
         private void Start()
         {
+            // The full P0 HUD already names the region. Retain these labels only in M1 diagnostics.
+            if (!showScreenOverlay) return;
             EnsureFont();
             foreach (RegionDefinition zone in world.Settings.Regions)
             {

@@ -1,0 +1,41 @@
+PASS M4 life/UI components serialized in existing scene
+PASS Approved provisional breakfast cost 26 cents
+PASS Insufficient cash does not buy or debit
+PASS No-money helper accepts one small task
+PASS Help gives exactly one meal and no cash
+PASS 50 repeat help actions cannot issue extra meals
+PASS M2 collect B-02
+PASS M2 collect D-01
+PASS M2 collect D-02
+PASS M2 collect D-03
+PASS M3 first income remains 44 cents
+PASS Completed help cannot be offered again with cash
+PASS L-01 purchase consumes26 cents:44 to18, one paid meal
+PASS Further unaffordable purchase is refused without partial debit
+PASS Optional story/clue flags recorded without item rewards
+PASS Ground unit retains ownership and creation day
+PASS M5 free rest cleans yesterday ground, refreshes sources and retains helper flag
+PASS Fresh next-day unit can be dropped independently of the cleared first-day unit
+PASS Complete food/cash/story/day/ground snapshot validates against real world
+PASS Restored state retains exact cash, ground, letter and once-only reward
+PASS Reload cannot duplicate help or original search yield
+PASS Quotes from an old live state never survive reload
+PASS L-03 before-help snapshot remains unclaimed and can pay exactly once
+PASS Corrupt letter identity rejected
+PASS Duplicate physical unit across sold and ground rejected
+PASS Cash/income/expense mismatch rejected
+PASS Mixed help completed/claimed flags rejected
+PASS Non-finite player position rejected
+PASS Player inside map wall cannot be restored
+PASS Future save schema rejected without silent migration
+PASS Different price/weight parameters rejected explicitly
+PASS Actual disk JSON/sha256 first save and load succeed
+PASS Atomic second save retains last valid backup
+PASS Interrupted temp file is ignored, good primary survives
+PASS Corrupted primary falls back to valid once-only reward state
+PASS Valid new save replaces damaged primary without losing backup
+PASS Both invalid files refuse load, no guessed partial recovery
+PASS Future envelope is refused cleanly, without throwing or applying state
+PASS Checksum mismatch is refused cleanly without partial recovery
+PASS Rejected save cannot overwrite previous valid bytes
+PASS All disk fault tests leave live model unchanged

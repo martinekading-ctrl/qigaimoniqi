@@ -1,0 +1,381 @@
+{
+    "phase": "write",
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "passed": true,
+    "checks": [
+        {
+            "name": "Full P0 HUD has no permanent region/NPC TextMesh labels over actors",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Spawn shows the single nearby original-bedding action",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Spawn badge lies inside actual window bounds",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Spawn badge does not cover Asheng or his facing arrow",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "New run clearly says it has not been saved",
+            "saveStatus": "尚未手动保存 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "No-slot read gives friendly instruction and keeps progress",
+            "saveStatus": "读取失败 · 当前进度保留",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Successful manual save establishes a clean snapshot and pose",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Save status shows actual success rather than an assumed save",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Optional controls explain free order and recovery without target badge overlap",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "All controls and recovery text fits the real rendered text rectangle",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Opening controls changes no gameplay data or save dirtiness",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Opening backpack closes controls and suppresses the floating badge",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Backpack letter button opens reading and preserves protected item",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Letter read is unsaved progress; read-only panel does not advertise confirmation",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Save after optional reading clears its dirty status",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Controls card does not freeze movement and changed pose is unsaved",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "First nearby paper uses the same eligible target as E interaction",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Nearby paper badge lies inside actual window bounds",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Nearby paper badge does not cover Asheng or his facing arrow",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Floating hint does not offer paper through a solid wall",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 0,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Normal E still collects the first legal paper after temporary wall removal",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Backpack suppresses floating badge without changing item interactions",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Collecting and saving retain exact1kg and clean state",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Far from every legal point no floating action is invented; movement is dirty",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Life interaction suppresses floating badge",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Original once-only helper path is retained",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "After helper used, prompt and insufficient-money advice explain only available actions and rest",
+            "saveStatus": "有未保存进度 · F5保存",
+            "passed": true,
+            "dirty": true,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Save current position, paper, letter and helper to primary and backup",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Actual backup recovery keeps persistent save guidance",
+            "saveStatus": "已从备份读取 · 建议F5保存",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Double-corrupt load reports failure without pretending a fresh save or changing live progress",
+            "saveStatus": "读取失败 · 当前进度保留",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "New successful save clears previous read error and backup hint",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Opening a life view closes the optional controls card without menu stacking",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Read-only journal view does not mark gameplay as changed",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        },
+        {
+            "name": "Writer exits with valid original schema4 progress",
+            "saveStatus": "已保存 · 第1日",
+            "passed": true,
+            "dirty": false,
+            "grams": 1000,
+            "day": 1,
+            "cashCents": 0
+        }
+    ],
+    "errors": [],
+    "screenshots": [
+        "01-optional-controls.png",
+        "02-letter-and-unsaved-status.png",
+        "03-nearby-paper.png",
+        "04-unsaved-movement.png",
+        "05-used-help-recovery-advice.png",
+        "06-backup-status.png"
+    ],
+    "finalState": {
+        "version": 1,
+        "scene": "M1Greybox",
+        "parameters": "M5:5000:1000:500:3000:12:20:16:26:1",
+        "position": {
+            "x": -3.963160753250122,
+            "y": 11.26841926574707
+        },
+        "facing": {
+            "x": -0.8944287896156311,
+            "y": -0.4472103714942932
+        },
+        "run": {
+            "schemaVersion": 4,
+            "inventory": [
+                {
+                    "unitId": "story-mother-letter",
+                    "originPointId": "opening",
+                    "kind": 3,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "B-02",
+                    "originPointId": "B-02",
+                    "kind": 0,
+                    "spawnedDay": 1
+                }
+            ],
+            "claimedSourceIds": [
+                "B-02"
+            ],
+            "groundDrops": [],
+            "cashCents": 0,
+            "scrapIncomeCents": 0,
+            "inventoryRevision": 1,
+            "soldUnits": [],
+            "clearedUnits": [],
+            "receipts": [],
+            "life": {
+                "dayIndex": 1,
+                "purchasedMeals": 0,
+                "mealExpenseCents": 0,
+                "helpOffered": true,
+                "helpCompleted": true,
+                "helpMealClaimed": true,
+                "openingSeen": true,
+                "letterRead": true,
+                "yearRead": false,
+                "noticeRead": false,
+                "puddleObserved": false,
+                "kettleObserved": false,
+                "residentTalked": false
+            }
+        }
+    },
+    "inputMethod": "Actual WindowsPlayer drives original Rigidbody2D, E edge, UI button callbacks and save handlers. No physical keyboard/mouse manual test.",
+    "captureMethod": "Live camera plus camera-space uGUI; no compositing or mock results."
+}

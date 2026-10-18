@@ -29,6 +29,7 @@ namespace Reborn1985.M2
         public bool BagOpen => bag != null && bag.activeSelf;
         public string WeightText => weight != null ? weight.text : "";
         public string FeedbackText => feedback != null ? feedback.text : "";
+        public Button LetterReadButton => drops[3];
         public void Configure(M2Scavenging service, Camera camera) { game = service; view = camera; }
 
         private void Start()
@@ -77,10 +78,12 @@ namespace Reborn1985.M2
             summary = Label(bagRect, "", 17, 16, 281, 488, 25);
             Label(bagRect, "1—4 选择 · X 丢弃 · Esc 关闭；打开背包仍可移动", 14, 16, 313, 488, 25);
             RectTransform bottom = Panel(canvasObject.transform, "Interaction", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 18), new Vector2(1020, 86));
-            prompt = Label(bottom, "", 18, 16, 10, 988, 28, new Color(1, .90f, .65f));
-            Label(bottom, "WASD / 方向键 移动  ·  E 拾取/搜索  ·  Tab / I 背包  ·  黄色箭头为朝向", 14, 16, 49, 988, 25);
-            RectTransform toast = Panel(canvasObject.transform, "Feedback", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 114), new Vector2(960, 40));
-            feedback = Label(toast, "", 17, 14, 6, 932, 30);
+            prompt = Label(bottom, "", 17, 16, 7, 988, 38, new Color(1, .90f, .65f));
+            prompt.horizontalOverflow=HorizontalWrapMode.Wrap;prompt.verticalOverflow=VerticalWrapMode.Truncate;
+            Label(bottom, "WASD / 方向键 移动  ·  E 交互  ·  Tab / I 背包  ·  F1 操作说明", 14, 16, 49, 988, 25);
+            RectTransform toast = Panel(canvasObject.transform, "Feedback", new Vector2(.5f, 0), new Vector2(.5f, 0), new Vector2(0, 114), new Vector2(960, 58));
+            feedback = Label(toast, "", 16, 14, 6, 932, 46);
+            feedback.horizontalOverflow=HorizontalWrapMode.Wrap;feedback.verticalOverflow=VerticalWrapMode.Truncate;
             game.Changed += RefreshInventory;
             game.FeedbackChanged += RefreshFeedback;
             RefreshInventory(); RefreshFeedback(); SetBagOpen(false);

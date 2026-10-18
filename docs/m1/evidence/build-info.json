@@ -1,0 +1,15 @@
+{
+  "unityVersion": "6000.3.25f1",
+  "unityRevision": "e1dba0a9aba4",
+  "target": "StandaloneWindows64",
+  "backend": "Mono",
+  "developmentBuild": true,
+  "graphicsVerification": "Direct3D 11",
+  "buildResult": "Succeeded",
+  "editorChecks": 33,
+  "runtimePassed": true,
+  "localZipPath": "Unity/Builds/Reborn1985-M1-Windows-x64.zip",
+  "localZipBytes": 61306887,
+  "localZipSHA256": "469dfcc18e60dbc44f1f1312c25d2f77c7ff231764280ccab8060da0b6f0001f",
+  "binaryUploadedToGitHub": false
+}

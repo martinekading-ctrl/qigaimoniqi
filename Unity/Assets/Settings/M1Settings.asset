@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e7d1d7b204ac1409e32652d0569eb9, type: 3}
+  m_Name: M1Settings
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M1.M1Settings
+  mapSize: {x: 60, y: 42}
+  cellSize: {x: 1, y: 0.5}
+  movementSpeed: 2.4
+  footRadius: 0.13
+  cameraSize: 3.25
+  cameraSmoothTime: 0.12
+  characterScale: 1
+  regions:
+  - id: A
+    title: "\u7834\u8D25\u5C0F\u5DF7"
+    cells:
+      x: 3
+      y: 3
+      width: 5
+      height: 9
+    entry: {x: 6, y: 5}
+  - id: B
+    title: "\u5DF7\u53E3\u8FC7\u6E21"
+    cells:
+      x: 5
+      y: 12
+      width: 3
+      height: 5
+    entry: {x: 6, y: 14}
+  - id: D
+    title: "\u4E3B\u8857"
+    cells:
+      x: 3
+      y: 17
+      width: 48
+      height: 7
+    entry: {x: 12, y: 20}
+  - id: C
+    title: "\u6797\u5A76\u65E9\u9910\u644A"
+    cells:
+      x: 14
+      y: 24
+      width: 9
+      height: 7
+    entry: {x: 18, y: 26}
+  - id: G
+    title: "\u9648\u4F2F\u6536\u8D2D\u7AD9"
+    cells:
+      x: 35
+      y: 24
+      width: 12
+      height: 9
+    entry: {x: 41, y: 28}
+  - id: F
+    title: "\u5E9F\u5F03\u7269\u533A"
+    cells:
+      x: 25
+      y: 7
+      width: 10
+      height: 10
+    entry: {x: 29, y: 15}
+  - id: E
+    title: "\u65E7\u8D27\u89D2\u843D"
+    cells:
+      x: 46
+      y: 8
+      width: 10
+      height: 9
+    entry: {x: 49, y: 13}

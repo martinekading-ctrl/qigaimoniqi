@@ -23,7 +23,7 @@ namespace Reborn1985.M3
             trade.Initialize();
             RectTransform chip = M2Hud.Panel(hud.CanvasRoot,"M3 Cash",new Vector2(0,1),new Vector2(0,1),new Vector2(515,-18),new Vector2(250,78));
             cash = hud.Label(chip,"",22,14,10,224,30,new Color(1,.88f,.62f));
-            hud.Label(chip,"按分结算 · 单次运行",14,14,47,224,24);
+            hud.Label(chip,"按分结算",14,14,47,224,24);
             RectTransform window = M2Hud.Panel(hud.CanvasRoot,"M3 Chenbo Weighing",Vector2.one,Vector2.one,new Vector2(-18,-106),new Vector2(520,446));
             panel = window.gameObject;
             title = hud.Label(window,"",22,18,12,484,32,new Color(1,.88f,.62f));

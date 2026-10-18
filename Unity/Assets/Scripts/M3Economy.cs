@@ -26,11 +26,12 @@ namespace Reborn1985.M3
         public IReadOnlyList<SaleLine> Lines { get; }
         public IReadOnlyList<string> UnitIds { get; }
         public SaleResult Status { get; }
+        private readonly string runToken;
         public int TotalGrams => Lines.Sum(line => line.Grams);
         public long TotalCents => Lines.Sum(line => line.Cents);
-        internal SaleQuote(int revision, long cash, SaleLine[] lines, string[] ids, SaleResult status)
-        { Revision = revision; CashBefore = cash; Lines = Array.AsReadOnly(lines); UnitIds = Array.AsReadOnly(ids); Status = status; }
-        internal bool Matches(SaleQuote other) => Revision == other.Revision && CashBefore == other.CashBefore && Status == other.Status &&
+        internal SaleQuote(int revision, long cash, SaleLine[] lines, string[] ids, SaleResult status, string token)
+        { Revision = revision; CashBefore = cash; Lines = Array.AsReadOnly(lines); UnitIds = Array.AsReadOnly(ids); Status = status; runToken=token; }
+        internal bool Matches(SaleQuote other) => runToken == other.runToken && Revision == other.Revision && CashBefore == other.CashBefore && Status == other.Status &&
             UnitIds.SequenceEqual(other.UnitIds) && Lines.Count == other.Lines.Count && Lines.Zip(other.Lines, (a,b) =>
                 a.Kind == b.Kind && a.Quantity == b.Quantity && a.Grams == b.Grams && a.CentsPerKg == b.CentsPerKg && a.Cents == b.Cents).All(equal => equal);
     }

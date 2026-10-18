@@ -1,6 +1,6 @@
 # P0 分阶段验收清单
 
-> P0全量测试设计已随PR #2归档。M1已由负责人Windows人工试玩通过；M2审核已完成，当前新增M3陈伯收购与现金结算。实际结果见[M1验证记录](../m1/VALIDATION.md)、[M2验证记录](../m2/VALIDATION.md)及[M3验证记录](../m3/VALIDATION.md)；餐食、时间、跨日及存档用例仍未执行。
+> P0全量测试设计已随PR #2归档。M1已由负责人Windows人工试玩通过；M2审核已完成，M3历史交付保留，当前新增M4。实际结果见[M1验证记录](../m1/VALIDATION.md)、[M2验证记录](../m2/VALIDATION.md)、[M3验证记录](../m3/VALIDATION.md)及[M4验证记录](../m4/VALIDATION.md)。M4执行餐食/帮工、可选内容、基础休息与存档子集；R-01后半资源再生、R-02清理、R-03有限跨日刷新及相关完整回归仍留M5，不视作已通过。
 >
 > 依据：[P0规格](P0_SPEC.md)、[决策记录](REVIEW_AND_DECISIONS.md)及[项目总规划](../PROJECT_PLAN.md)。开发和技术方案需另行批准。
 

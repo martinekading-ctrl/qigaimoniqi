@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Reborn1985.M3;
+using Reborn1985.M4;
 
 namespace Reborn1985.M2
 {
@@ -22,14 +23,15 @@ namespace Reborn1985.M2
     {
         public ItemUnit unit;
         public Vector2 position;
-        public GroundDrop Copy() => new GroundDrop { unit = unit.Copy(), position = position };
+        public int createdDay = 1;
+        public GroundDrop Copy() => new GroundDrop { unit = unit.Copy(), position = position, createdDay = createdDay };
     }
 
-    // Detached transfer data for later M4/M5 integration; no disk save or day clock in M2.
+    // Detached transfer data; M4 persists it and M5 will own refresh/cleanup.
     [Serializable]
     public sealed class M2RunSnapshot
     {
-        public int schemaVersion = 2;
+        public int schemaVersion = 3;
         public ItemUnit[] inventory;
         public string[] claimedSourceIds;
         public GroundDrop[] groundDrops;
@@ -37,6 +39,7 @@ namespace Reborn1985.M2
         public int inventoryRevision;
         public ItemUnit[] soldUnits;
         public SaleReceipt[] receipts;
+        public M4LifeData life;
     }
 
     // All ownership mutations complete synchronously before the UI is notified.
@@ -49,6 +52,9 @@ namespace Reborn1985.M2
         private readonly List<ItemUnit> sold = new List<ItemUnit>();
         private readonly List<SaleReceipt> receipts = new List<SaleReceipt>();
         private int revision;
+        private readonly string runToken = Guid.NewGuid().ToString("N");
+        private M4LifeData life = new M4LifeData();
+        public M4LifeData Life => life.Copy();
         public long CashCents { get; private set; }
         public long ScrapIncomeCents { get; private set; }
         public int SoldCount => sold.Count;
@@ -90,7 +96,7 @@ namespace Reborn1985.M2
             ItemUnit unit = inventory.FirstOrDefault(item => item.kind == kind);
             if (unit == null || ground.ContainsKey(unit.unitId)) return false;
             inventory.Remove(unit);
-            dropped = new GroundDrop { unit = unit, position = position };
+            dropped = new GroundDrop { unit = unit, position = position, createdDay = life.dayIndex };
             ground.Add(unit.unitId, dropped);
             revision++;
             // Never expose the mutable object owned by this state.
@@ -113,7 +119,7 @@ namespace Reborn1985.M2
             }
             string[] ids = inventory.Where(unit => unit.kind != ItemKind.Letter).Select(unit => unit.unitId).OrderBy(id => id,StringComparer.Ordinal).ToArray();
             if (ids.Length == 0) status = SaleResult.Empty;
-            return new SaleQuote(revision,CashCents,lines.ToArray(),ids,status);
+            return new SaleQuote(revision,CashCents,lines.ToArray(),ids,status,runToken);
         }
         public SaleResult TrySell(SaleQuote quote, M3TradeSettings prices, out SaleReceipt receipt)
         {
@@ -139,13 +145,61 @@ namespace Reborn1985.M2
             receipts.Add(receipt.Copy());
             return SaleResult.Success;
         }
+        public bool TryBuyBreakfast(int cents)
+        {
+            if (cents <= 0 || CashCents < cents || life.purchasedMeals >= 10000) return false;
+            long expense = checked(life.mealExpenseCents + cents);
+            CashCents -= cents; life.mealExpenseCents = expense; life.purchasedMeals++; revision++;
+            return true;
+        }
+        public bool OfferHelp(int breakfastCents)
+        {
+            if (life.helpMealClaimed || breakfastCents<=0 || CashCents>=breakfastCents) return false;
+            life.helpOffered = true; return true;
+        }
+        public bool CompleteHelp()
+        {
+            if (!life.helpOffered || life.helpMealClaimed) return false;
+            life.helpCompleted = life.helpMealClaimed = true; return true;
+        }
+        public bool Rest()
+        {
+            if (life.dayIndex >= 100000) return false;
+            life.dayIndex++; return true; // M5 owns resource refresh and old-drop cleanup.
+        }
+        public void MarkSeen(LifeView view)
+        {
+            switch (view)
+            {
+                case LifeView.Letter: life.letterRead=true; break;
+                case LifeView.Year: life.yearRead=true; break;
+                case LifeView.Notice: life.noticeRead=true; break;
+                case LifeView.Puddle: life.puddleObserved=true; break;
+                case LifeView.Kettle: life.kettleObserved=true; break;
+                case LifeView.Resident: life.residentTalked=true; break;
+            }
+        }
+        public void MarkOpeningSeen() => life.openingSeen = true;
+        public static M2RunState RestoreValidated(M2RunSnapshot data, M2Settings weights, M3TradeSettings prices, M4Settings content)
+        {
+            if (!M4SaveValidation.Run(data,weights,prices,content)) throw new ArgumentException("Invalid run snapshot",nameof(data));
+            var state = new M2RunState(weights);
+            state.inventory.Clear(); state.inventory.AddRange(data.inventory.Select(unit=>unit.Copy()));
+            foreach (string id in data.claimedSourceIds) state.claimed.Add(id);
+            foreach (GroundDrop drop in data.groundDrops) state.ground.Add(drop.unit.unitId,drop.Copy());
+            state.sold.AddRange(data.soldUnits.Select(unit=>unit.Copy()));
+            state.receipts.AddRange(data.receipts.Select(receipt=>receipt.Copy()));
+            state.revision=data.inventoryRevision; state.CashCents=data.cashCents; state.ScrapIncomeCents=data.scrapIncomeCents;
+            state.life=data.life.Copy();
+            return state;
+        }
         public M2RunSnapshot Snapshot() => new M2RunSnapshot
         {
             inventory = inventory.Select(unit => unit.Copy()).ToArray(),
             claimedSourceIds = claimed.OrderBy(id => id, StringComparer.Ordinal).ToArray(),
             groundDrops = ground.Values.OrderBy(drop => drop.unit.unitId, StringComparer.Ordinal).Select(drop => drop.Copy()).ToArray(),
             cashCents = CashCents, scrapIncomeCents = ScrapIncomeCents, inventoryRevision = revision,
-            soldUnits = sold.Select(unit => unit.Copy()).ToArray(), receipts = receipts.Select(receipt => receipt.Copy()).ToArray()
+            soldUnits = sold.Select(unit => unit.Copy()).ToArray(), receipts = receipts.Select(receipt => receipt.Copy()).ToArray(), life=life.Copy()
         };
     }
 }

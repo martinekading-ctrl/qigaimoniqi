@@ -1,0 +1,7 @@
+PASS UI polish retains exact M5 save schema4
+PASS Fresh run does not claim to have been saved
+PASS Full P0 HUD uses no redundant M1 world-label overlay
+PASS Read-only letter prompt does not advertise a nonexistent confirm action
+PASS Reading remains optional and retains the protected zero-weight letter
+PASS Rest still advertises its actual confirmation action
+PASS Opening and cancelling UI does not issue money or advance a day

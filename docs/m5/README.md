@@ -2,6 +2,8 @@
 
 > Unity **6000.3.25f1**（e1dba0a9aba4）｜C#｜Windows x64 / Mono开发版｜版本0.5.0｜待PR审核和Windows人工试玩，不进入P1
 
+> 后续同阶段0.5.1体验修正见[当前试玩说明](../p0-usability/README.md)和[新增验证记录](../p0-usability/VALIDATION.md)。本页保留0.5.0交付历史，跨日规则未改变，完整P0验收仍未完成。
+
 M4交付后负责人明确要求“继续下一版的开发”。本轮实施[总规划M5](../PROJECT_PLAN.md)、[P0规格5.4/7](../p0/P0_SPEC.md)、[决策第10节](../p0/REVIEW_AND_DECISIONS.md)与[验收R/S用例](../p0/ACCEPTANCE.md)。继续使用原`Unity/Assets/Scenes/M1Greybox.unity`、七区20点位、相机、碰撞、M2拾荒背包、M3称重及M4生活/存档，没有重建工程、选择新引擎或安装依赖。
 
 开工时main为`7d8f8bc`，M3 PR #5、M4 PR #6均未合并。M5分支从最新main建立后快进到M4交付`f667327`，暂以M4分支作为PR基线，只显示M5差异；依赖合并后再调整基线，不代为合并任何PR。

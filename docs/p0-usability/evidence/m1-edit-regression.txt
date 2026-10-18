@@ -1,0 +1,33 @@
+PASS Pinned Unity editor 6000.3.25f1
+PASS Real Isometric Grid
+PASS 20 unique point IDs
+PASS Clear approach in A
+PASS A to A reachable
+PASS A return to A reachable
+PASS Clear approach in B
+PASS A to B reachable
+PASS B return to A reachable
+PASS Clear approach in D
+PASS A to D reachable
+PASS D return to A reachable
+PASS Clear approach in C
+PASS A to C reachable
+PASS C return to A reachable
+PASS Clear approach in G
+PASS A to G reachable
+PASS G return to A reachable
+PASS Clear approach in F
+PASS A to F reachable
+PASS F return to A reachable
+PASS Clear approach in E
+PASS A to E reachable
+PASS E return to A reachable
+PASS D-04 decoration only
+PASS G-01 visual guide only
+PASS G-04 clear standing space
+PASS Diagonal speed normalized
+PASS Facing follows direction
+PASS Actual 2D physics blocks building crossing
+PASS No solid penetration after wall push
+PASS Releasing movement stops body
+PASS Orthographic camera

@@ -1,0 +1,49 @@
+PASS Provisional fixture refreshes original seven sources once per day
+PASS Twenty original points retained without new IDs
+PASS Existing scene shows M5 title
+PASS Decoration and wrong item kind cannot become refresh resources
+PASS Failure fixture has used its only helper meal with zero cash
+PASS Exhaust and drop first-day source B-02
+PASS Exhaust and drop first-day source D-01
+PASS Exhaust and drop first-day source D-02
+PASS Exhaust and drop first-day source D-03
+PASS Exhaust and drop first-day source F-01
+PASS Exhaust and drop first-day source F-02
+PASS Exhaust and drop first-day source F-03
+PASS All seven finite resources exhausted, zero cash, valid saved state
+PASS R-02 overnight removes all ground ownership and records seven cleared identities
+PASS R-01 all seven next-day source slots become available
+PASS L-02 rest cannot reset one-time helper reward
+PASS Recovery collect new physical unit B-02
+PASS Recovery collect new physical unit D-01
+PASS Recovery collect new physical unit D-02
+PASS Recovery collect new physical unit D-03
+PASS R-01 zero-money failure recovers by next-day 3kg sale for44 cents
+PASS R-01 recovered route buys breakfast and conserves18 cents
+PASS New-day sold units never reuse cleared first-day IDs
+PASS R-02 backpack contents and protected letter survive rest
+PASS Previous-day pending quote is invalid after rest
+PASS Old carried paper and fresh source paper coexist with distinct identities
+PASS Old inventory dropped today can still be re-picked today
+PASS Mixed-day sale prices actual 2papers plus1bottle at34 cents
+PASS Ten carried bottles plus letter remain a valid5kg multi-day save
+PASS Next-day refreshed source still respects full backpack
+PASS Only ground bottle clears; nine carried bottles remain
+PASS Configurable2-day cycle still clears ground daily without early source refresh
+PASS Configured next cycle yields one new unit at day3
+PASS Alternate cycle validates without changing production1-day fixture
+PASS 60-day stress:420 unique sold units, income6840, meals1560, cash5280 cents
+PASS Stress retains420 identities and one lifetime helper reward
+PASS Multi-day JSON roundtrip retains assets and rejects helper replay
+PASS Future source generation rejected
+PASS Cleared and sold physical identity duplication rejected
+PASS Missing historical claim rejected
+PASS Actual M4 fixture upgrades a detached copy, leaving original data unchanged
+PASS M4 migration preserves18c/day2/helper and retires only stale previous-day ground
+PASS Current schema normalization is idempotent
+PASS Actual checksummed M4 file loads through migration before validation
+PASS First M5 save retains the original valid M4 bytes as backup
+PASS M4 backup fallback migrates once without resurrecting expired items
+PASS Recovery state saves and reloads seven cleared identities without revival
+PASS Oversized serialization cannot replace a readable save even with permissive caller validation
+PASS Tests leave live scene and default refresh fixture unchanged

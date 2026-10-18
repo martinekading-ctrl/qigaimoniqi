@@ -30143,7 +30143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Hud
   game: {fileID: 1778755676}
   view: {fileID: 1220128811}
-  stageTitle: "\u91CD\u751F80\u5E74\u4EE3 \xB7 M5 \u8DE8\u65E5\u6C42\u751F"
+  stageTitle: "\u91CD\u751F80\u5E74\u4EE3 \xB7 M5.1 P0\u4F53\u9A8C\u5B8C\u5584"
 --- !u!114 &1778755676
 MonoBehaviour:
   m_ObjectHideFlags: 0

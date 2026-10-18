@@ -1,0 +1,47 @@
+{
+  "version": "0.5.1",
+  "unityVersion": "6000.3.25f1",
+  "target": "Windows x64 Mono Development",
+  "zip": "Unity/Builds/Reborn1985-M5.1-Windows-x64.zip",
+  "bytes": 61892629,
+  "sha256": "0f5fb869bf6cb04c21011720083aeae97a8eb3d46fb4451c42d50f5b13783ae5",
+  "entries": 234,
+  "criticalFiles": [
+    {
+      "path": "Reborn1985.exe",
+      "bytes": 667136,
+      "sha256": "b9fc30bb05ca93a042831974149a681d656963e3e612ecafd9ae826759d739ad",
+      "matchesTestedDirectory": true
+    },
+    {
+      "path": "UnityPlayer.dll",
+      "bytes": 84451752,
+      "sha256": "c02b29b5fcba897f597ef0f5c6248a11436616ed663cd82075184d5dd1dcc76b",
+      "matchesTestedDirectory": true
+    },
+    {
+      "path": "Reborn1985_Data/Managed/Assembly-CSharp.dll",
+      "bytes": 201216,
+      "sha256": "547ec0a3cfd988bd3f3a9e95b1d554b105388b448d51db8b77f1f2065c35854d",
+      "matchesTestedDirectory": true
+    },
+    {
+      "path": "试玩说明.txt",
+      "bytes": 1165,
+      "sha256": "9f198074bd4fce18a626df99a030ba550e9b118aaed380539ce0b31ea1220a1b",
+      "matchesTestedDirectory": true
+    },
+    {
+      "path": "Verification/M4Schema3.json",
+      "bytes": 1539,
+      "sha256": "bd9924a0d457cf604e40bbd40cd99a06bfe30d3459465b434b9717963d77dce4",
+      "matchesTestedDirectory": true
+    },
+    {
+      "path": "Verification/M5Schema4.json",
+      "bytes": 2534,
+      "sha256": "44f049e413e9b8721c5b1838609a10e773842fdd9fd35ad88e0be5a4fb8652ad",
+      "matchesTestedDirectory": true
+    }
+  ]
+}

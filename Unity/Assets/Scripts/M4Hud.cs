@@ -2,6 +2,7 @@ using System.Collections;
 using System.Text;
 using Reborn1985.M2;
 using Reborn1985.M3;
+using Reborn1985.P0;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,16 +19,18 @@ namespace Reborn1985.M4
         public Button PrimaryButton=>primary;
         public Button HelpButton=>secondary;
         public string BodyText=>body==null?"":body.text;
+        public P0UsabilityHud Usability { get; private set; }
         public void Configure(M4Session life,M2Hud overlay) {session=life;hud=overlay;}
         private IEnumerator Start()
         {
             while(hud.CanvasRoot==null) yield return null;
             session.Initialize();
-            RectTransform status=M2Hud.Panel(hud.CanvasRoot,"M4 date and save",new Vector2(0,1),new Vector2(0,1),new Vector2(18,-106),new Vector2(485,82));
+            RectTransform status=M2Hud.Panel(hud.CanvasRoot,"M4 date and save",new Vector2(0,1),new Vector2(0,1),new Vector2(18,-106),new Vector2(485,100));
             date=hud.Label(status,"",17,14,8,235,29,new Color(1,.88f,.62f));
             MakeButton(status,"保存",new Vector2(265,-8),new Vector2(95,31),()=>session.SaveNow());
             MakeButton(status,"读取",new Vector2(370,-8),new Vector2(95,31),()=>session.OpenLoad());
-            hud.Label(status,"F5 保存 · F9 读取 · L 家书 · J 线索",14,14,48,456,25);
+            hud.Label(status,"F5 保存 · F9 读取 · L 家书 · J 线索",14,14,40,456,25);
+            Usability=new P0UsabilityHud(session,hud,status,Camera.main);
             RectTransform window=M2Hud.Panel(hud.CanvasRoot,"M4 life and opening",Vector2.one,Vector2.one,new Vector2(-18,-106),new Vector2(520,446));
             panel=window.gameObject;
             title=hud.Label(window,"",22,18,12,484,32,new Color(1,.88f,.62f));
@@ -42,6 +45,8 @@ namespace Reborn1985.M4
         private void Update()
         {
             if(!Ready) return;
+            if(Input.GetKeyDown(KeyCode.F1))Usability.ToggleControls();
+            if(Input.GetKeyDown(KeyCode.Escape)&&Usability.ControlsOpen){Usability.HideControls();return;}
             if(Input.GetKeyDown(KeyCode.F5)) session.SaveNow();
             if(Input.GetKeyDown(KeyCode.F9)) session.OpenLoad();
             if(Input.GetKeyDown(KeyCode.L)) session.OpenLetter();
@@ -53,6 +58,7 @@ namespace Reborn1985.M4
         private void Refresh()
         {
             if(!Ready)return;
+            Usability?.ContextChanged();
             M4LifeData state=session.Game.State.Life;
             date.text=session.DateText;
             panel.SetActive(session.IsOpen);hud.LifeInputBlocked=session.IsOpen;
@@ -102,6 +108,7 @@ namespace Reborn1985.M4
         }
         private void OnDestroy()
         {
+            Usability?.Dispose();
             if(session!=null)session.Changed-=Refresh;if(session!=null&&session.Game!=null)session.Game.Changed-=Refresh;
             if(hud!=null){hud.LifeInputBlocked=false;hud.SetLetterReader(null);if(session!=null&&hud.LifeContextPrompt==session.ContextPrompt)hud.LifeContextPrompt=null;}
         }

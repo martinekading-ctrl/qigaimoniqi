@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 390057278}
   - component: {fileID: 390057280}
   - component: {fileID: 390057279}
+  - component: {fileID: 390057281}
   m_Layer: 0
   m_Name: "D-02 \u73BB\u7483\u74F61\u5360\u4F4D"
   m_TagString: Untagged
@@ -355,7 +356,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.34, g: 0.84, b: 0.75, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -379,6 +380,22 @@ MonoBehaviour:
   pointId: D-02
   description: "\u73BB\u7483\u74F61\u5360\u4F4D"
   role: 0
+--- !u!114 &390057281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390057277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: D-02
+  item: 1
+  search: 0
+  dropped: 0
 --- !u!1 &420992468
 GameObject:
   m_ObjectHideFlags: 0
@@ -8623,6 +8640,7 @@ GameObject:
   - component: {fileID: 1002147302}
   - component: {fileID: 1002147304}
   - component: {fileID: 1002147303}
+  - component: {fileID: 1002147305}
   m_Layer: 0
   m_Name: "F-02 \u5E9F\u5305\u88C5\u5806\u5360\u4F4D"
   m_TagString: Untagged
@@ -8695,7 +8713,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.34, g: 0.84, b: 0.75, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8719,6 +8737,22 @@ MonoBehaviour:
   pointId: F-02
   description: "\u5E9F\u5305\u88C5\u5806\u5360\u4F4D"
   role: 0
+--- !u!114 &1002147305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002147301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: F-02
+  item: 1
+  search: 1
+  dropped: 0
 --- !u!1 &1070193815
 GameObject:
   m_ObjectHideFlags: 0
@@ -8944,6 +8978,7 @@ GameObject:
   - component: {fileID: 1128579979}
   - component: {fileID: 1128579981}
   - component: {fileID: 1128579980}
+  - component: {fileID: 1128579982}
   m_Layer: 0
   m_Name: "B-02 \u7B2C\u4E00\u4EFD\u5F03\u7F6E\u5E9F\u7EB8\u5360\u4F4D"
   m_TagString: Untagged
@@ -9016,7 +9051,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.95, g: 0.86, b: 0.55, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9040,6 +9075,22 @@ MonoBehaviour:
   pointId: B-02
   description: "\u7B2C\u4E00\u4EFD\u5F03\u7F6E\u5E9F\u7EB8\u5360\u4F4D"
   role: 0
+--- !u!114 &1128579982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128579978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: B-02
+  item: 0
+  search: 0
+  dropped: 0
 --- !u!1 &1211267695
 GameObject:
   m_ObjectHideFlags: 0
@@ -9051,6 +9102,7 @@ GameObject:
   - component: {fileID: 1211267696}
   - component: {fileID: 1211267698}
   - component: {fileID: 1211267697}
+  - component: {fileID: 1211267699}
   m_Layer: 0
   m_Name: "F-01 \u5E9F\u5F03\u7AF9\u7B50\u5806\u5360\u4F4D"
   m_TagString: Untagged
@@ -9123,7 +9175,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.95, g: 0.86, b: 0.55, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9147,6 +9199,22 @@ MonoBehaviour:
   pointId: F-01
   description: "\u5E9F\u5F03\u7AF9\u7B50\u5806\u5360\u4F4D"
   role: 0
+--- !u!114 &1211267699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211267695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: F-01
+  item: 0
+  search: 1
+  dropped: 0
 --- !u!1 &1220128809
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,6 +9330,7 @@ GameObject:
   - component: {fileID: 1275411640}
   - component: {fileID: 1275411642}
   - component: {fileID: 1275411641}
+  - component: {fileID: 1275411643}
   m_Layer: 0
   m_Name: "D-01 \u7B2C\u4E8C\u4EFD\u5E9F\u7EB8\u5360\u4F4D"
   m_TagString: Untagged
@@ -9334,7 +9403,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.95, g: 0.86, b: 0.55, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9358,6 +9427,22 @@ MonoBehaviour:
   pointId: D-01
   description: "\u7B2C\u4E8C\u4EFD\u5E9F\u7EB8\u5360\u4F4D"
   role: 0
+--- !u!114 &1275411643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275411639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: D-01
+  item: 0
+  search: 0
+  dropped: 0
 --- !u!1 &1303410133
 GameObject:
   m_ObjectHideFlags: 0
@@ -29960,6 +30045,8 @@ GameObject:
   - component: {fileID: 1778755672}
   - component: {fileID: 1778755674}
   - component: {fileID: 1778755673}
+  - component: {fileID: 1778755676}
+  - component: {fileID: 1778755675}
   m_Layer: 0
   m_Name: M1 Continuous County Block
   m_TagString: Untagged
@@ -30000,6 +30087,7 @@ MonoBehaviour:
   world: {fileID: 1778755674}
   player: {fileID: 1774275117}
   view: {fileID: 1220128811}
+  showScreenOverlay: 0
 --- !u!114 &1778755674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30037,6 +30125,36 @@ MonoBehaviour:
   - {fileID: 1447520622}
   - {fileID: 344514775}
   - {fileID: 706119748}
+--- !u!114 &1778755675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778755671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d01843b0c1095458186c17a06a4b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Hud
+  game: {fileID: 1778755676}
+  view: {fileID: 1220128811}
+--- !u!114 &1778755676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778755671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9d16628d3a6a24798409fcd57c359b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Scavenging
+  world: {fileID: 1778755674}
+  player: {fileID: 1774275117}
+  settings: {fileID: 11400000, guid: 7bfc358ce837a7f49a611c85c873d031, type: 2}
+  dropSprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
 --- !u!1 &1879880316
 GameObject:
   m_ObjectHideFlags: 0
@@ -30048,6 +30166,7 @@ GameObject:
   - component: {fileID: 1879880317}
   - component: {fileID: 1879880319}
   - component: {fileID: 1879880318}
+  - component: {fileID: 1879880320}
   m_Layer: 0
   m_Name: "D-03 \u73BB\u7483\u74F62\u5360\u4F4D"
   m_TagString: Untagged
@@ -30120,7 +30239,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.34, g: 0.84, b: 0.75, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -30144,6 +30263,22 @@ MonoBehaviour:
   pointId: D-03
   description: "\u73BB\u7483\u74F62\u5360\u4F4D"
   role: 0
+--- !u!114 &1879880320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879880316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: D-03
+  item: 1
+  search: 0
+  dropped: 0
 --- !u!1 &1938590816
 GameObject:
   m_ObjectHideFlags: 0
@@ -30299,6 +30434,7 @@ GameObject:
   - component: {fileID: 1969967169}
   - component: {fileID: 1969967171}
   - component: {fileID: 1969967170}
+  - component: {fileID: 1969967172}
   m_Layer: 0
   m_Name: "F-03 \u5E9F\u91D1\u5C5E\u5360\u4F4D"
   m_TagString: Untagged
@@ -30371,7 +30507,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
-  m_Color: {r: 0.62, g: 0.52, b: 0.33, a: 1}
+  m_Color: {r: 0.61, g: 0.71, b: 0.83, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -30395,6 +30531,22 @@ MonoBehaviour:
   pointId: F-03
   description: "\u5E9F\u91D1\u5C5E\u5360\u4F4D"
   role: 0
+--- !u!114 &1969967172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969967168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea95da33235a2445bc54b0bce8d70d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Pickup
+  sourceId: F-03
+  item: 2
+  search: 0
+  dropped: 0
 --- !u!1 &2056658328
 GameObject:
   m_ObjectHideFlags: 0

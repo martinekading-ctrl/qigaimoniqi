@@ -1,0 +1,31 @@
+{
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "passed": true,
+    "visitedRegions": [
+        "A",
+        "B",
+        "D",
+        "C",
+        "D",
+        "G",
+        "D",
+        "F",
+        "D",
+        "E",
+        "D",
+        "B",
+        "A"
+    ],
+    "screenshots": [
+        "01-A-start.png",
+        "00-seven-zone-overview.png",
+        "zone-C.png",
+        "zone-G.png",
+        "zone-F.png",
+        "zone-E.png"
+    ],
+    "errors": [],
+    "inputMethod": "Development harness drives the same Rigidbody2D controller; not a physical-keyboard test.",
+    "captureMethod": "Windows player camera renders the live scene to a RenderTexture; OnGUI panels are not in these captures."
+}

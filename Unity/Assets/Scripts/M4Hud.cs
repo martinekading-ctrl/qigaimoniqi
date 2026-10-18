@@ -70,7 +70,7 @@ namespace Reborn1985.M4
                     title.text="C-04 · 整理摊具";text=state.helpMealClaimed?"这次帮工已完成，基础餐食已领取。不会因再对话或读取存档重新发放。":state.helpOffered?"林婶请你帮忙整理摊具。\n\n确认完成这次简单整理，可领到并吃下一份基础餐。只领取一次，不增加现金。\n\n动作是M4原型交互，具体表现待验证。":"先到林婶面前询问一次性帮工。";
                     primary.gameObject.SetActive(state.helpOffered&&!state.helpMealClaimed);primaryLabel.text="完成整理并领取餐食";break;
                 case LifeView.Rest:
-                    title.text="原有破旧铺盖 · 免费休息";text="这里只是阿生在小巷中的临时落脚处。\n\n休息不收费，确认后进入下一日。\n\nM4只实现基础休息、日序与存档。资源刷新和上日丢弃物清理留给M5；本版休息后现有资源状态保持。\n\n可在休息后按 F5 保存。";
+                    title.text="原有破旧铺盖 · 免费休息";text="这里只是阿生在小巷中的临时落脚处。\n\n休息不收费，确认后进入下一日。\n\n上日仍留在地面的丢弃物会清理，背包中的物品保留。一次性帮工餐不会重置。\n\n七个原有来源点按有限周期刷新，每点每轮只产出一件。可在休息后按 F5 保存。";
                     primary.gameObject.SetActive(true);primaryLabel.text="免费休息到次日";break;
                 case LifeView.Letter:title.text="母亲来信";text=session.Settings.LetterSummary;break;
                 case LifeView.Year:title.text="旧报纸上的年份";text="纸面上的年份是：1985。\n\n县城的自行车、旧招牌和朴素街景，都与现代记忆不同。\n\n已记录年代线索。具体月日尚未确认。";break;

@@ -5,6 +5,7 @@ using System.Linq;
 using Reborn1985.M1;
 using Reborn1985.M2;
 using Reborn1985.M3;
+using Reborn1985.M5;
 using UnityEngine;
 
 namespace Reborn1985.M4
@@ -41,7 +42,7 @@ namespace Reborn1985.M4
             if(initialized) return;
             game.Initialize();trade.Initialize();
             foreach(GreyboxPoint point in game.World.Points) points.Add(point.Id,point);
-            Store=new M4SaveStore(Path.Combine(Application.persistentDataPath,"Saves"));
+            Store=new M4SaveStore(Path.Combine(Application.persistentDataPath,"Saves"),NormalizeSave);
             game.LifeInteraction=HandleInteraction; initialized=true;
         }
         public Vector2 InteractionPosition(string id)=>id=="C-01"?game.World.RegionEntry("C"):(Vector2)points[id].transform.position;
@@ -105,7 +106,7 @@ namespace Reborn1985.M4
                     ok=game.State.CompleteHelp();
                     ResultText=ok?"你整理好摊具，领到并吃下一份基础餐。这次帮工不发现金，只能领取一次。":game.State.Life.helpMealClaimed?"这次帮工餐食已经领取，不能再领。":"先到林婶面前了解帮工，再来整理。";break;
                 case LifeView.Rest:
-                    ok=game.State.Rest();ResultText=ok?"你在原有破旧铺盖上歇了一夜。当前第 "+game.State.Life.dayIndex+" 日，现金未扣除。\n\nM4只推进日序；资源刷新与上日丢弃物清理由M5接入。":"无法推进日序，状态未变化。";break;
+                    ok=game.RestToNextDay();ResultText=ok?"你在原有破旧铺盖上歇了一夜。当前第 "+game.State.Life.dayIndex+" 日，现金未扣除。\n\n上日地面丢弃物已清理，背包与一次性帮工状态保留。七个来源点按有限周期刷新，可继续拾荒。":"无法推进日序，状态未变化。";break;
                 case LifeView.Load:return LoadNow();
                 default:return false;
             }
@@ -137,9 +138,10 @@ namespace Reborn1985.M4
             Physics2D.SyncTransforms();Camera.main.GetComponent<CameraFollow>().Snap();
             game.ShowFeedback(backup?"主存档不可用，已恢复上一份有效备份。":"已恢复位置、现金、物品和事件进度。");Changed?.Invoke();return true;
         }
+        private M4SaveData NormalizeSave(M4SaveData data)=>M5SaveUpgrade.Normalize(data,game.Settings,trade.Settings,settings);
         // Tests use isolated directories and never touch the player's normal save slot.
         public void SetVerificationSaveDirectory(string directory)
-        {if(Debug.isDebugBuild && Environment.GetCommandLineArgs().Any(arg=>arg=="-m4-smoke")) Store=new M4SaveStore(directory);}
+        {if(Debug.isDebugBuild && Environment.GetCommandLineArgs().Any(arg=>arg=="-m4-smoke"||arg=="-m5-smoke")) Store=new M4SaveStore(directory,NormalizeSave);}
         private void Update(){if(IsOpen && activePoint!=null && !Near(activePoint)) Close();}
         private void OnDisable(){if(game!=null && game.LifeInteraction==HandleInteraction)game.LifeInteraction=null;}
         private void OnEnable(){if(initialized)game.LifeInteraction=HandleInteraction;}

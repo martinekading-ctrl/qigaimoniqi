@@ -1,0 +1,39 @@
+PASS Trade and UI serialized in existing M2 scene
+PASS Approved test rates 12/20/16 cents per kilogram; letter excluded
+PASS Original G-04 counter approach clear
+PASS Exact decimal money display without float
+PASS New run starts at zero cents with protected letter
+PASS E-03 letter-only inventory cannot make a sale
+PASS Empty attempt changes neither units, receipts nor cash
+PASS E-01 two papers and two bottles quote exactly 3000g / 44 cents
+PASS Paper24 + bottle20 cents; bottle rate is per kg
+PASS Opening and reading quote makes no asset mutation
+PASS Inventory can change independently of stale quote
+PASS E-03 missing quantity rejects whole sale atomically
+PASS M2 ground paper can be re-picked before re-quoting
+PASS Drop/re-pick does not resurrect old quote even if counts match
+PASS Explicit fresh confirmation succeeds
+PASS E-01 inventory deduction, weight and cash commit together
+PASS Receipt records actual identities, grams and cents
+PASS Mother letter is absent from sale and retained
+PASS E-03 100 repeated confirmations do not pay twice
+PASS Sold source remains claimed B-02
+PASS Sold source remains claimed D-01
+PASS Sold source remains claimed D-02
+PASS Sold source remains claimed D-03
+PASS M2 capacity is freed after sale
+PASS E-02 3kg metal at 16 cents/kg quotes 48 cents
+PASS Metal sale accumulates exact cash 44+48=92
+PASS Finite unclaimed search resources remain usable
+PASS One bottle transfers to ground
+PASS Ground bottle is not sold from inventory
+PASS Sale leaves ground ownership intact
+PASS Re-picked unsold ground bottle can be sold once
+PASS All finite resources total exactly 114 cents in four receipts
+PASS Ownership conserved across inventory, ground and sold sink
+PASS All source claims and protected letter survive sales
+PASS M4 transfer snapshot is detached from authoritative state
+PASS Price change invalidates already displayed quote without payment
+PASS Unapproved half-cent parameters refuse sale; no invented rounding
+PASS Rejected fractional amount retains goods and cash
+PASS Invalid price cannot consume goods for zero payment

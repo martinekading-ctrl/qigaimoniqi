@@ -2,16 +2,16 @@
 
 一款以中国广东县城为背景的 2D 斜俯视像素风生活模拟、经营养成与人生逆袭游戏。
 
-**当前阶段：M4——早餐、一次性帮工、开局内容、基础休息与存档，待PR审核和Windows实机验收。M5跨日刷新与完整P0验收尚未开始。**
+**当前阶段：M5——跨日有限刷新、旧丢弃物清理与P0功能回归，待PR审核和Windows人工验收。P0最终人工/视觉/文案验收尚未完成，不进入P1。**
 
-工程位于 `Unity/`，锁定 **Unity 6.3 LTS 6000.3.25f1**、C#与Windows PC，沿用 `Assets/Scenes/M1Greybox.unity`。[M4打开、操作和Windows试玩说明](docs/m4/README.md) · [M4实际验证与限制](docs/m4/VALIDATION.md) · [M3历史交付](docs/m3/README.md)。
+工程位于 `Unity/`，锁定 **Unity 6.3 LTS 6000.3.25f1**、C#与Windows PC，沿用 `Assets/Scenes/M1Greybox.unity`。[M5打开、操作和Windows试玩说明](docs/m5/README.md) · [M5实际验证](docs/m5/VALIDATION.md) · [P0逐项覆盖与待验](docs/m5/ACCEPTANCE_MATRIX.md) · [M4历史交付](docs/m4/README.md)。
 
 ## 项目规划
 
 完整设计与阶段边界见 [V0.1 项目总体规划](docs/PROJECT_PLAN.md)，其中区分了完整游戏长期愿景、M0规划、首个可玩版本 P0 和最小可玩经营版本 P1，并列明已确认、暂定及待确认事项。
 
-P0 五幕详细资料见 [开发规格](docs/p0/P0_SPEC.md)、[审查与决策记录](docs/p0/REVIEW_AND_DECISIONS.md)、[验收清单](docs/p0/ACCEPTANCE.md)和[概念参考图说明](docs/p0/references/README.md)。完整规划不代表实现全部P0的授权；当前新增M4子集，最终地图与像素规格仍待确认。
+P0 五幕详细资料见 [开发规格](docs/p0/P0_SPEC.md)、[审查与决策记录](docs/p0/REVIEW_AND_DECISIONS.md)、[验收清单](docs/p0/ACCEPTANCE.md)和[概念参考图说明](docs/p0/references/README.md)。当前按M5授权完成跨日求生闭环与技术回归，最终地图、美术、像素规格与文案仍待确认，完整P0通过须负责人验收。
 
 保留M1七区20点位、移动/镜头/碰撞，M2有限拾荒/5kg背包/丢弃重拾和M3陈伯称重交易。新增林婶基础餐0.26元、缺钱时一次性帮工换餐、可选家书/年代/旧壶线索、A-01原铺盖免费休息及手动存读档。基础两纸两瓶3kg售得0.44元，买餐后剩0.18元，均为暂定测试参数。
 
-WASD/方向键移动，E近距离交互，Enter确认，Esc返回，Tab/I背包；L家书、J线索、F5保存、F9读取确认。休息推进日序，本版不刷新资源、不清理上日丢弃物，完整跨日恢复留M5。家书正文与具体月日仍待确认；旧壶只观察记录，不开放P1经营。
+WASD/方向键移动，E近距离交互，Enter确认，Esc返回，Tab/I背包；L家书、J线索、F5保存、F9读取确认。A-01免费休息推进日序并清理上日地面丢弃物，保留背包和帮工状态；现有七个来源暂定每点每日一件，次日可重新拾荒。支持M4旧存档升级，清理旧档里已跨日的地面物，保留现金与一次性标记。家书正文与具体月日仍待确认；旧壶只观察记录，不开放P1经营。

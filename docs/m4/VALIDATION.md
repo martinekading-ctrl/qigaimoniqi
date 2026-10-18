@@ -1,5 +1,7 @@
 # M4 实际验证记录与待验事项
 
+> 本页为M4历史构建记录，保留原始40项及41/19项结果；M5更新跨日断言后的回归结果见[M5验证](../m5/VALIDATION.md)，历史证据不被覆盖。
+
 > 2026-10-19｜Unity **6000.3.25f1**（e1dba0a9aba4）｜Windows x64 Mono开发版｜Direct3D11 / AMD Radeon Vega 10｜1280×720及1024×768｜待负责人审核与Windows人工试玩
 
 本轮基于M3交付`61209ee`追加M4；开工时最新main为M2合并提交`7d8f8bc`，M3 PR #5尚未合并。没有将任何PR自动合并到main。测试依据是[P0第一/四/五幕及保存要求](../p0/P0_SPEC.md)、[正式验收清单](../p0/ACCEPTANCE.md)和[阶段决策](../p0/REVIEW_AND_DECISIONS.md#9-2026-10-19负责人批准m4)。

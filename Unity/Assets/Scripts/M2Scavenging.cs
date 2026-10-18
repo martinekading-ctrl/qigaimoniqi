@@ -89,7 +89,7 @@ namespace Reborn1985.M2
         public string Prompt(M2Pickup target)
         {
             if (target == null) return "沿主街自由探索；只有明确弃置物和指定搜索点可取。";
-            if (!Available(target)) return target.Id + " · 已搜索，本次运行不再产出";
+            if (!Available(target)) return target.Id + " · 本轮已搜索，休息后按有限周期刷新";
             string id = target.IsDropped ? "地面丢弃物" : target.Id;
             return "[E] " + (target.IsSearch ? "搜索" : "拾取") + " · " + id + " · " + M2Settings.Name(target.Item) + " ×1 / " + M2Settings.Kg(settings.Weight(target.Item));
         }
@@ -160,6 +160,13 @@ namespace Reborn1985.M2
         }
         private void RefreshSources()
         { foreach (M2Pickup target in targets) target.ShowState(Available(target)); }
+        internal bool RestToNextDay()
+        {
+            if(!State.Rest()) return false;
+            foreach(M2Pickup old in targets.Where(target=>target.IsDropped).ToArray())
+            { old.gameObject.SetActive(false); targets.Remove(old); Destroy(old.gameObject); }
+            RefreshSources(); Changed?.Invoke(); return true;
+        }
         internal void ReplaceRunState(M2RunState replacement)
         {
             var staged = new List<M2Pickup>();

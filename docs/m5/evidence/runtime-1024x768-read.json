@@ -1,0 +1,757 @@
+{
+    "phase": "read",
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "normalSavePath": "C:/Users/User/AppData/LocalLow/QigaiPrototype/Reborn1985\\Saves\\save.json",
+    "passed": true,
+    "checks": [
+        {
+            "name": "Independent reader process begins fresh before explicit load",
+            "passed": true,
+            "helpClaimed": false,
+            "day": 1,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 0,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 0,
+            "cashCents": 0
+        },
+        {
+            "name": "S-02 cold load retains cleanup and helper flag, without reviving old items",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "S-01 cold load restores exact saved position and facing",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "S-03 current-day source availability and optional clues restored",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "Repeated post-cleanup load cannot restore expired ground 0",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "Repeated post-cleanup load cannot restore expired ground 1",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "Repeated post-cleanup load cannot restore expired ground 2",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 7,
+            "cashCents": 0
+        },
+        {
+            "name": "R-01 next-day four sources restore basic3kg route",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 3000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 0
+        },
+        {
+            "name": "Fresh units have day2 identities, not cleared first-day copies",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 3000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 0
+        },
+        {
+            "name": "I-02 refreshed heavy metal still rejects overweight6kg",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 3000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 0,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 0
+        },
+        {
+            "name": "E-01 next-day recovery sells3kg for44 cents",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 44
+        },
+        {
+            "name": "R-01 complete failure recovery buys26c meal and leaves18c without resetting help",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 18
+        },
+        {
+            "name": "L-02 helper remains unavailable after overnight and cold load",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 11,
+            "cashCents": 18
+        },
+        {
+            "name": "I-03 drop current-day searched paper after recovery",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 1,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 12,
+            "cashCents": 18
+        },
+        {
+            "name": "S-02 save current-day dropped paper",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 0,
+            "ground": 1,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 12,
+            "cashCents": 18
+        },
+        {
+            "name": "I-03 current-day dropped paper can be re-picked",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 12,
+            "cashCents": 18
+        },
+        {
+            "name": "S-02 save after re-pick keeps bag only and source claimed",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 2,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 12,
+            "cashCents": 18
+        },
+        {
+            "name": "R-02 next overnight keeps carried paper without new ground",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 12,
+            "cashCents": 18
+        },
+        {
+            "name": "Held yesterday paper and fresh today paper coexist",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 2000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "Same source across days owns two distinct physical IDs",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 2000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "R-03 same-day search spam cannot create third paper",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 2000,
+            "ground": 0,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "Drop old carried paper today with its original birth identity",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 1000,
+            "ground": 1,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "Old carried item dropped today remains re-pickable until next rest",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 3,
+            "grams": 1000,
+            "ground": 1,
+            "cleared": 7,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "Next rest clears only discarded old paper and keeps day3 carried paper",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "S-02 post-cleanup save does not resurrect any of eight expired units",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "I-05 protected letter and lifetime helper flag survive all days",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 1000,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 4,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 18
+        },
+        {
+            "name": "Remaining legitimate day3 paper sells once for12c, total30c",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route A",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route B",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route D",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route C",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route D",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route G",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route D",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route F",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route D",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route E",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route D",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route B",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "M1 regression route A",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        },
+        {
+            "name": "Full recovery and regression finish with valid conserved day4 state",
+            "passed": true,
+            "helpClaimed": true,
+            "day": 4,
+            "grams": 0,
+            "ground": 0,
+            "cleared": 8,
+            "sold": 5,
+            "letters": 1,
+            "claimed": 13,
+            "cashCents": 30
+        }
+    ],
+    "errors": [],
+    "screenshots": [
+        "04-recovered-3kg-backpack.png",
+        "05-recovery-breakfast-18c.png",
+        "06-held-and-fresh-papers.png",
+        "07-day4-regression-complete.png"
+    ],
+    "finalState": {
+        "version": 1,
+        "scene": "M1Greybox",
+        "parameters": "M5:5000:1000:500:3000:12:20:16:26:1",
+        "position": {
+            "x": 0.48112747073173525,
+            "y": 3.0094361305236818
+        },
+        "facing": {
+            "x": 0.8944280743598938,
+            "y": -0.447211891412735
+        },
+        "run": {
+            "schemaVersion": 4,
+            "inventory": [
+                {
+                    "unitId": "story-mother-letter",
+                    "originPointId": "opening",
+                    "kind": 3,
+                    "spawnedDay": 1
+                }
+            ],
+            "claimedSourceIds": [
+                "B-02",
+                "B-02@2",
+                "D-01",
+                "D-01@2",
+                "D-02",
+                "D-02@2",
+                "D-03",
+                "D-03@2",
+                "F-01",
+                "F-01@2",
+                "F-01@3",
+                "F-02",
+                "F-03"
+            ],
+            "groundDrops": [],
+            "cashCents": 30,
+            "scrapIncomeCents": 56,
+            "inventoryRevision": 29,
+            "soldUnits": [
+                {
+                    "unitId": "B-02@2",
+                    "originPointId": "B-02",
+                    "kind": 0,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-01@2",
+                    "originPointId": "D-01",
+                    "kind": 0,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-02@2",
+                    "originPointId": "D-02",
+                    "kind": 1,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "D-03@2",
+                    "originPointId": "D-03",
+                    "kind": 1,
+                    "spawnedDay": 2
+                },
+                {
+                    "unitId": "F-01@3",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 3
+                }
+            ],
+            "clearedUnits": [
+                {
+                    "unitId": "B-02",
+                    "originPointId": "B-02",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-01",
+                    "originPointId": "D-01",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-02",
+                    "originPointId": "D-02",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "D-03",
+                    "originPointId": "D-03",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-01",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-02",
+                    "originPointId": "F-02",
+                    "kind": 1,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-03",
+                    "originPointId": "F-03",
+                    "kind": 2,
+                    "spawnedDay": 1
+                },
+                {
+                    "unitId": "F-01@2",
+                    "originPointId": "F-01",
+                    "kind": 0,
+                    "spawnedDay": 2
+                }
+            ],
+            "receipts": [
+                {
+                    "sequence": 1,
+                    "cashBefore": 0,
+                    "cashAfter": 44,
+                    "incomeCents": 44,
+                    "totalGrams": 3000,
+                    "unitIds": [
+                        "B-02@2",
+                        "D-01@2",
+                        "D-02@2",
+                        "D-03@2"
+                    ],
+                    "quantities": [
+                        2,
+                        2,
+                        0
+                    ],
+                    "grams": [
+                        2000,
+                        1000,
+                        0
+                    ],
+                    "centsPerKg": [
+                        12,
+                        20,
+                        16
+                    ],
+                    "lineCents": [
+                        24,
+                        20,
+                        0
+                    ]
+                },
+                {
+                    "sequence": 2,
+                    "cashBefore": 18,
+                    "cashAfter": 30,
+                    "incomeCents": 12,
+                    "totalGrams": 1000,
+                    "unitIds": [
+                        "F-01@3"
+                    ],
+                    "quantities": [
+                        1,
+                        0,
+                        0
+                    ],
+                    "grams": [
+                        1000,
+                        0,
+                        0
+                    ],
+                    "centsPerKg": [
+                        12,
+                        20,
+                        16
+                    ],
+                    "lineCents": [
+                        12,
+                        0,
+                        0
+                    ]
+                }
+            ],
+            "life": {
+                "dayIndex": 4,
+                "purchasedMeals": 1,
+                "mealExpenseCents": 26,
+                "helpOffered": true,
+                "helpCompleted": true,
+                "helpMealClaimed": true,
+                "openingSeen": true,
+                "letterRead": false,
+                "yearRead": false,
+                "noticeRead": false,
+                "puddleObserved": false,
+                "kettleObserved": true,
+                "residentTalked": true
+            }
+        }
+    },
+    "inputMethod": "Actual WindowsPlayer drives original Rigidbody2D, E edge, gameplay handlers and uGUI callbacks; no physical keyboard/mouse manual test.",
+    "captureMethod": "Live camera and camera-space uGUI; no mock data, AI assets or compositing."
+}

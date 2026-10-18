@@ -30047,6 +30047,8 @@ GameObject:
   - component: {fileID: 1778755673}
   - component: {fileID: 1778755676}
   - component: {fileID: 1778755675}
+  - component: {fileID: 1778755678}
+  - component: {fileID: 1778755677}
   m_Layer: 0
   m_Name: M1 Continuous County Block
   m_TagString: Untagged
@@ -30139,6 +30141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M2.M2Hud
   game: {fileID: 1778755676}
   view: {fileID: 1220128811}
+  stageTitle: "\u91CD\u751F80\u5E74\u4EE3 \xB7 M3 \u5E9F\u54C1\u6536\u8D2D"
 --- !u!114 &1778755676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30155,6 +30158,35 @@ MonoBehaviour:
   player: {fileID: 1774275117}
   settings: {fileID: 11400000, guid: 7bfc358ce837a7f49a611c85c873d031, type: 2}
   dropSprite: {fileID: 21300000, guid: b515121b328a22040873cc8d91f1d379, type: 3}
+--- !u!114 &1778755677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778755671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6a499f8f69228468aac9e0cf696417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M3.M3Hud
+  trade: {fileID: 1778755678}
+  game: {fileID: 1778755676}
+  hud: {fileID: 1778755675}
+--- !u!114 &1778755678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778755671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee91802cb4a60fe4db3723f002cb4542, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reborn1985.M3.M3Trade
+  game: {fileID: 1778755676}
+  settings: {fileID: 11400000, guid: 07ff3d325e44dd147a4f07c3eab9ea2a, type: 2}
 --- !u!1 &1879880316
 GameObject:
   m_ObjectHideFlags: 0

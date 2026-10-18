@@ -1,0 +1,1132 @@
+{
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "passed": true,
+    "visitedRegions": [
+        "A",
+        "B",
+        "D",
+        "C",
+        "D",
+        "G",
+        "D",
+        "F",
+        "D",
+        "E",
+        "D",
+        "B",
+        "A"
+    ],
+    "screenshots": [
+        "00-protected-letter.png",
+        "01-nearby-pickup.png",
+        "02-backpack-3kg.png",
+        "03-overweight-metal.png",
+        "04-metal-at-capacity.png",
+        "05-finite-search.png",
+        "06-drop-and-repick.png",
+        "07-return-to-A.png"
+    ],
+    "errors": [],
+    "checks": [
+        {
+            "name": "TEST6 new run has one weightless letter",
+            "passed": true,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 0,
+            "groundUnits": 0,
+            "details": "claimCount=0; feedback=靠近黄色废纸或绿色玻璃瓶，按 E 拾取。"
+        },
+        {
+            "name": "TEST6 letter destructive operation rejected through HUD",
+            "passed": true,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 0,
+            "groundUnits": 0,
+            "details": "claimCount=0; feedback=母亲来信是受保护剧情物品，不能丢弃。"
+        },
+        {
+            "name": "Remote pickup refused from A",
+            "passed": true,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 0,
+            "groundUnits": 0,
+            "details": "claimCount=0; feedback=距离太远或有障碍，不能拾取。"
+        },
+        {
+            "name": "Wall blocks pickup at otherwise legal distance",
+            "passed": true,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 0,
+            "groundUnits": 0,
+            "details": "claimCount=0; feedback=距离太远或有障碍，不能拾取。"
+        },
+        {
+            "name": "Nearby prompt selects legal B-02",
+            "passed": true,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 0,
+            "groundUnits": 0,
+            "details": "claimCount=0; feedback=距离太远或有障碍，不能拾取。"
+        },
+        {
+            "name": "E press collects B-02 and removes its ground visual",
+            "passed": true,
+            "paper": 1,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 1000,
+            "groundUnits": 0,
+            "details": "claimCount=1; feedback=已拾取 废纸 ×1；当前 1.0 kg。"
+        },
+        {
+            "name": "Held E does not auto-collect on leaving and returning",
+            "passed": true,
+            "paper": 1,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 1000,
+            "groundUnits": 0,
+            "details": "claimCount=1; feedback=已拾取 废纸 ×1；当前 1.0 kg。"
+        },
+        {
+            "name": "TEST1 base route: paper2 bottle2 = 3000g, all four points claimed",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 0,
+            "details": "claimCount=4; feedback=已拾取 玻璃瓶 ×1；当前 3.0 kg。"
+        },
+        {
+            "name": "HUD displays actual 3.0 / 5.0 kg",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 0,
+            "details": "claimCount=4; feedback=已拾取 玻璃瓶 ×1；当前 3.0 kg。"
+        },
+        {
+            "name": "TEST2 6000g rejected; metal stays and backpack unchanged",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 0,
+            "details": "claimCount=4; feedback=超重：需要 6.0 kg，上限 5.0 kg。物品留在原地。"
+        },
+        {
+            "name": "Drop one paper immediately removes 1000g and creates one ground unit",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2000,
+            "groundUnits": 1,
+            "details": "claimCount=4; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2000,
+            "groundUnits": 1,
+            "details": "claimCount=4; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "TEST3 capacity choice: metal succeeds at exactly 5000g",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 1,
+            "letters": 1,
+            "totalGrams": 5000,
+            "groundUnits": 1,
+            "details": "claimCount=5; feedback=已拾取 废金属 ×1；当前 5.0 kg。"
+        },
+        {
+            "name": "Re-pick applies capacity limit and retains rejected ground item",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 1,
+            "letters": 1,
+            "totalGrams": 5000,
+            "groundUnits": 1,
+            "details": "claimCount=5; feedback=超重：需要 6.0 kg，上限 5.0 kg。物品留在原地。"
+        },
+        {
+            "name": "Overweight search does not consume finite yield",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 1,
+            "letters": 1,
+            "totalGrams": 5000,
+            "groundUnits": 1,
+            "details": "claimCount=5; feedback=超重：需要 6.0 kg，上限 5.0 kg。物品留在原地。"
+        },
+        {
+            "name": "Drop metal to free search capacity",
+            "passed": true,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2000,
+            "groundUnits": 2,
+            "details": "claimCount=5; feedback=已放下 废金属 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "TEST4 each search yields once; 20 repeat pairs produce zero extras",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 0",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 1",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 2",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 3",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 4",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 5",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 6",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 7",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 8",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 9",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 10",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 11",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 12",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 13",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 14",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 15",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 16",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 17",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 18",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 19",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 20",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 21",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 22",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 23",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 24",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 25",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 26",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 27",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 1,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 2500,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 废纸 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 28",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Ground drops are on floor, clear of NPC/wall colliders and non-blocking",
+            "passed": true,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3000,
+            "groundUnits": 3,
+            "details": "claimCount=7; feedback=已放下 玻璃瓶 ×1，可在附近重新拾取。"
+        },
+        {
+            "name": "Duplicate same-frame re-pick refused 29",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST5 30 drop/re-pick and bag-toggle cycles conserve all seven resources plus letter",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Claims and protected letter survive all exchanges",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 1: A",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 2: B",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 3: D",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 4: C",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 5: D",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 6: G",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 7: D",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 8: F",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 9: D",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 10: E",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 11: D",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 12: B",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "TEST7 move/camera regression 13: A",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        },
+        {
+            "name": "Full route with bag open does not duplicate, lose or block resources",
+            "passed": true,
+            "paper": 2,
+            "bottles": 3,
+            "metal": 0,
+            "letters": 1,
+            "totalGrams": 3500,
+            "groundUnits": 2,
+            "details": "claimCount=7; feedback=这里已经取过了，没有额外产出。"
+        }
+    ],
+    "finalState": {
+        "schemaVersion": 2,
+        "inventory": [
+            {
+                "unitId": "story-mother-letter",
+                "originPointId": "opening",
+                "kind": 3
+            },
+            {
+                "unitId": "D-02",
+                "originPointId": "D-02",
+                "kind": 1
+            },
+            {
+                "unitId": "F-01",
+                "originPointId": "F-01",
+                "kind": 0
+            },
+            {
+                "unitId": "D-03",
+                "originPointId": "D-03",
+                "kind": 1
+            },
+            {
+                "unitId": "D-01",
+                "originPointId": "D-01",
+                "kind": 0
+            },
+            {
+                "unitId": "F-02",
+                "originPointId": "F-02",
+                "kind": 1
+            }
+        ],
+        "claimedSourceIds": [
+            "B-02",
+            "D-01",
+            "D-02",
+            "D-03",
+            "F-01",
+            "F-02",
+            "F-03"
+        ],
+        "groundDrops": [
+            {
+                "unit": {
+                    "unitId": "B-02",
+                    "originPointId": "B-02",
+                    "kind": 0
+                },
+                "position": {
+                    "x": 9.738682746887207,
+                    "y": 10.114508628845215
+                }
+            },
+            {
+                "unit": {
+                    "unitId": "F-03",
+                    "originPointId": "F-03",
+                    "kind": 2
+                },
+                "position": {
+                    "x": 7.713783264160156,
+                    "y": 9.606891632080079
+                }
+            }
+        ],
+        "cashCents": 0,
+        "scrapIncomeCents": 0,
+        "inventoryRevision": 69,
+        "soldUnits": [],
+        "receipts": []
+    },
+    "inputMethod": "Actual WindowsPlayer; same Rigidbody2D mover and E-key edge path via development input, plus same UI drop handler. Not a physical keyboard/mouse test.",
+    "captureMethod": "Live Windows camera renders scene AND camera-space uGUI into RenderTexture. No mock UI, compositing or AI images."
+}

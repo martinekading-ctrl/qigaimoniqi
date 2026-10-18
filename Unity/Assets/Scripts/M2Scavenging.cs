@@ -34,6 +34,9 @@ namespace Reborn1985.M2
         public float FeedbackUntil { get; private set; }
         public event Action Changed;
         public event Action FeedbackChanged;
+        public Func<bool> ContextInteraction { get; set; }
+        internal void NotifyStateChanged() => Changed?.Invoke();
+        internal void ShowFeedback(string message, bool error = false) => Report(error ? InteractionResult.Unavailable : InteractionResult.Success, message);
 
         public void Configure(M1World map, PlayerMover actor, M2Settings parameters, Sprite marker)
         { world = map; player = actor; settings = parameters; dropSprite = marker; }
@@ -53,6 +56,7 @@ namespace Reborn1985.M2
             if (State == null) return;
             if (interaction.Press(verificationHeld ?? Input.GetKey(KeyCode.E)))
             {
+                if (ContextInteraction?.Invoke() == true) return;
                 M2Pickup target = Nearest();
                 if (target != null) TryInteract(target);
             }

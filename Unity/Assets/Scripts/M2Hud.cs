@@ -1,3 +1,4 @@
+using System;
 using Reborn1985.M1;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,11 @@ namespace Reborn1985.M2
     {
         [SerializeField] private M2Scavenging game;
         [SerializeField] private Camera view;
+        [SerializeField] private string stageTitle = "重生80年代 · M2 拾荒原型";
+        public bool InventoryInputBlocked { get; set; }
+        public Func<string> ContextPrompt { get; set; }
+        public Transform CanvasRoot => canvasObject != null ? canvasObject.transform : null;
+        public void SetStageTitle(string title) => stageTitle = title;
         private Font font;
         private GameObject canvasObject, bag;
         private Text region, weight, prompt, feedback, summary;
@@ -42,7 +48,7 @@ namespace Reborn1985.M2
                 events.GetComponent<EventSystem>().sendNavigationEvents = false;
             }
             RectTransform title = Panel(canvasObject.transform, "Title", new Vector2(0, 1), new Vector2(0, 1), new Vector2(18, -18), new Vector2(485, 78));
-            Label(title, "重生80年代 · M2 拾荒原型", 23, 14, 10, 460, 30, new Color(1, .88f, .62f));
+            Label(title, stageTitle, 23, 14, 10, 460, 30, new Color(1, .88f, .62f));
             region = Label(title, "", 16, 14, 44, 460, 25);
             RectTransform chip = Panel(canvasObject.transform, "Weight", Vector2.one, Vector2.one, new Vector2(-18, -18), new Vector2(310, 78));
             weight = Label(chip, "", 22, 14, 9, 285, 30, new Color(.71f, .91f, .83f));
@@ -79,9 +85,9 @@ namespace Reborn1985.M2
         private void Update()
         {
             if (bag == null) return;
-            if (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I)) SetBagOpen(!BagOpen);
-            if (Input.GetKeyDown(KeyCode.Escape)) SetBagOpen(false);
-            if (BagOpen)
+            if (!InventoryInputBlocked && (Input.GetKeyDown(KeyCode.Tab) || Input.GetKeyDown(KeyCode.I))) SetBagOpen(!BagOpen);
+            if (!InventoryInputBlocked && Input.GetKeyDown(KeyCode.Escape)) SetBagOpen(false);
+            if (!InventoryInputBlocked && BagOpen)
             {
                 for (int i = 0; i < 4; i++)
                     if (Input.GetKeyDown((KeyCode)((int)KeyCode.Alpha1 + i))) { selected = i; RefreshInventory(); }
@@ -89,7 +95,7 @@ namespace Reborn1985.M2
             }
             string nextRegion = game.World.RegionAt(game.Player.Body.position);
             if (region.text != nextRegion) region.text = nextRegion;
-            string nextPrompt = game.Prompt(game.Nearest());
+            string nextPrompt = ContextPrompt?.Invoke() ?? game.Prompt(game.Nearest());
             if (prompt.text != nextPrompt) prompt.text = nextPrompt;
             feedback.transform.parent.gameObject.SetActive(Time.unscaledTime < game.FeedbackUntil);
         }
@@ -121,7 +127,7 @@ namespace Reborn1985.M2
             if (game != null) { game.Changed -= RefreshInventory; game.FeedbackChanged -= RefreshFeedback; }
             if (font != null) Destroy(font);
         }
-        private static RectTransform Rect(Transform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 position, Vector2 size)
+        public static RectTransform Rect(Transform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 position, Vector2 size)
         {
             var obj = new GameObject(name, typeof(RectTransform));
             var rect = obj.GetComponent<RectTransform>(); rect.SetParent(parent, false);
@@ -129,13 +135,13 @@ namespace Reborn1985.M2
             rect.anchoredPosition = position; rect.sizeDelta = size;
             return rect;
         }
-        private static RectTransform Panel(Transform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 position, Vector2 size)
+        public static RectTransform Panel(Transform parent, string name, Vector2 anchor, Vector2 pivot, Vector2 position, Vector2 size)
         {
             RectTransform rect = Rect(parent, name, anchor, pivot, position, size);
             Image image = rect.gameObject.AddComponent<Image>(); image.color = new Color(.08f, .12f, .15f, .94f);
             return rect;
         }
-        private Text Label(Transform parent, string value, int size, float x, float y, float width, float height, Color? color = null)
+        public Text Label(Transform parent, string value, int size, float x, float y, float width, float height, Color? color = null)
         {
             RectTransform rect = Rect(parent, value, new Vector2(0, 1), new Vector2(0, 1), new Vector2(x, -y), new Vector2(width, height));
             Text text = rect.gameObject.AddComponent<Text>(); text.font = font; text.text = value; text.fontSize = size;

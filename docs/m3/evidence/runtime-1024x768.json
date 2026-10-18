@@ -1,0 +1,708 @@
+{
+    "unityVersion": "6000.3.25f1",
+    "platform": "WindowsPlayer",
+    "graphicsDevice": "Direct3D11",
+    "passed": true,
+    "checks": [
+        {
+            "name": "New run: zero cents and protected letter",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Remote Chenbo interaction rejected from A",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E-03 empty-handed Chenbo shows rates without sale",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Empty confirm changes no assets",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "M2 base pickup regression: paper2 bottle2 3000g",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E-01 weighing preview: 3000g 44c, bag unobstructed by duplicate panels",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Preview class totals 24+20, cash not credited before confirm",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E only opens, repeated E never confirms",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E-03 cancel retains all goods and zero cash",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Drop after quote frees 1kg and invalidates displayed ownership",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 2000,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 1,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E-03 stale quantity refused atomically",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 2000,
+            "paper": 1,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 1,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "M2 dropped-paper E re-pick still works at merchant approach",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Restored counts cannot revive original quote",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "Walking away cancels quote and prevents remote confirmation",
+            "passed": true,
+            "cashCents": 0,
+            "incomeCents": 0,
+            "grams": 3000,
+            "paper": 2,
+            "bottles": 2,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 0,
+            "receipts": 0
+        },
+        {
+            "name": "E-01 real UI callback sells exactly four units for 44 cents",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Actual receipt and HUD match committed cash",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Protected letter never enters sale",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "E-03 30 double callbacks and old quote replay produce no extra cash",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Reopening Chenbo after selling cannot sell already-sold units",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Sold original pickup stays claimed B-02",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Sold original pickup stays claimed D-01",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Sold original pickup stays claimed D-02",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "Sold original pickup stays claimed D-03",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "M2 capacity freed: metal can now be carried",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 3000,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 1,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "E-02 metal quote 3kg at 16 cents/kg =48c",
+            "passed": true,
+            "cashCents": 44,
+            "incomeCents": 44,
+            "grams": 3000,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 1,
+            "letters": 1,
+            "ground": 0,
+            "sold": 4,
+            "receipts": 1
+        },
+        {
+            "name": "E-02 metal commits once: cash44+48=92c",
+            "passed": true,
+            "cashCents": 92,
+            "incomeCents": 92,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 5,
+            "receipts": 2
+        },
+        {
+            "name": "M2 finite search still produces one paper and one bottle",
+            "passed": true,
+            "cashCents": 92,
+            "incomeCents": 92,
+            "grams": 1500,
+            "paper": 1,
+            "bottles": 1,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 5,
+            "receipts": 2
+        },
+        {
+            "name": "M2 bag drop after sales retains unsold bottle on ground",
+            "passed": true,
+            "cashCents": 92,
+            "incomeCents": 92,
+            "grams": 1000,
+            "paper": 1,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 1,
+            "sold": 5,
+            "receipts": 2
+        },
+        {
+            "name": "Sale quotes carried paper only, excludes dropped bottle",
+            "passed": true,
+            "cashCents": 92,
+            "incomeCents": 92,
+            "grams": 1000,
+            "paper": 1,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 1,
+            "sold": 5,
+            "receipts": 2
+        },
+        {
+            "name": "Paper sale preserves ground bottle and credits12c",
+            "passed": true,
+            "cashCents": 104,
+            "incomeCents": 104,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 1,
+            "sold": 6,
+            "receipts": 3
+        },
+        {
+            "name": "Unsold ground bottle re-picks with original identity",
+            "passed": true,
+            "cashCents": 104,
+            "incomeCents": 104,
+            "grams": 500,
+            "paper": 0,
+            "bottles": 1,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 6,
+            "receipts": 3
+        },
+        {
+            "name": "Half-kilogram bottle quotes10c, not20c per piece",
+            "passed": true,
+            "cashCents": 104,
+            "incomeCents": 104,
+            "grams": 500,
+            "paper": 0,
+            "bottles": 1,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 6,
+            "receipts": 3
+        },
+        {
+            "name": "Seven finite resources sold once:114c, four receipts, only letter in bag",
+            "passed": true,
+            "cashCents": 114,
+            "incomeCents": 114,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 7,
+            "receipts": 4
+        },
+        {
+            "name": "No duplicated sold identity and no source claim reset",
+            "passed": true,
+            "cashCents": 114,
+            "incomeCents": 114,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 7,
+            "receipts": 4
+        },
+        {
+            "name": "M2 protected letter still cannot drop after all transactions",
+            "passed": true,
+            "cashCents": 114,
+            "incomeCents": 114,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 7,
+            "receipts": 4
+        },
+        {
+            "name": "Return to A preserves exact cash without scene reset or movement lock",
+            "passed": true,
+            "cashCents": 114,
+            "incomeCents": 114,
+            "grams": 0,
+            "paper": 0,
+            "bottles": 0,
+            "metal": 0,
+            "letters": 1,
+            "ground": 0,
+            "sold": 7,
+            "receipts": 4
+        }
+    ],
+    "errors": [],
+    "screenshots": [
+        "01-empty-inquiry.png",
+        "02-3kg-44c-confirmation.png",
+        "03-first-income-44c.png",
+        "04-metal-48c.png",
+        "05-finite-total-114c.png",
+        "06-cash-and-protected-bag.png"
+    ],
+    "finalState": {
+        "schemaVersion": 2,
+        "inventory": [
+            {
+                "unitId": "story-mother-letter",
+                "originPointId": "opening",
+                "kind": 3
+            }
+        ],
+        "claimedSourceIds": [
+            "B-02",
+            "D-01",
+            "D-02",
+            "D-03",
+            "F-01",
+            "F-02",
+            "F-03"
+        ],
+        "groundDrops": [],
+        "cashCents": 114,
+        "scrapIncomeCents": 114,
+        "inventoryRevision": 15,
+        "soldUnits": [
+            {
+                "unitId": "D-01",
+                "originPointId": "D-01",
+                "kind": 0
+            },
+            {
+                "unitId": "D-02",
+                "originPointId": "D-02",
+                "kind": 1
+            },
+            {
+                "unitId": "D-03",
+                "originPointId": "D-03",
+                "kind": 1
+            },
+            {
+                "unitId": "B-02",
+                "originPointId": "B-02",
+                "kind": 0
+            },
+            {
+                "unitId": "F-03",
+                "originPointId": "F-03",
+                "kind": 2
+            },
+            {
+                "unitId": "F-01",
+                "originPointId": "F-01",
+                "kind": 0
+            },
+            {
+                "unitId": "F-02",
+                "originPointId": "F-02",
+                "kind": 1
+            }
+        ],
+        "receipts": [
+            {
+                "sequence": 1,
+                "cashBefore": 0,
+                "cashAfter": 44,
+                "incomeCents": 44,
+                "totalGrams": 3000,
+                "unitIds": [
+                    "B-02",
+                    "D-01",
+                    "D-02",
+                    "D-03"
+                ],
+                "quantities": [
+                    2,
+                    2,
+                    0
+                ],
+                "grams": [
+                    2000,
+                    1000,
+                    0
+                ],
+                "centsPerKg": [
+                    12,
+                    20,
+                    16
+                ],
+                "lineCents": [
+                    24,
+                    20,
+                    0
+                ]
+            },
+            {
+                "sequence": 2,
+                "cashBefore": 44,
+                "cashAfter": 92,
+                "incomeCents": 48,
+                "totalGrams": 3000,
+                "unitIds": [
+                    "F-03"
+                ],
+                "quantities": [
+                    0,
+                    0,
+                    1
+                ],
+                "grams": [
+                    0,
+                    0,
+                    3000
+                ],
+                "centsPerKg": [
+                    12,
+                    20,
+                    16
+                ],
+                "lineCents": [
+                    0,
+                    0,
+                    48
+                ]
+            },
+            {
+                "sequence": 3,
+                "cashBefore": 92,
+                "cashAfter": 104,
+                "incomeCents": 12,
+                "totalGrams": 1000,
+                "unitIds": [
+                    "F-01"
+                ],
+                "quantities": [
+                    1,
+                    0,
+                    0
+                ],
+                "grams": [
+                    1000,
+                    0,
+                    0
+                ],
+                "centsPerKg": [
+                    12,
+                    20,
+                    16
+                ],
+                "lineCents": [
+                    12,
+                    0,
+                    0
+                ]
+            },
+            {
+                "sequence": 4,
+                "cashBefore": 104,
+                "cashAfter": 114,
+                "incomeCents": 10,
+                "totalGrams": 500,
+                "unitIds": [
+                    "F-02"
+                ],
+                "quantities": [
+                    0,
+                    1,
+                    0
+                ],
+                "grams": [
+                    0,
+                    500,
+                    0
+                ],
+                "centsPerKg": [
+                    12,
+                    20,
+                    16
+                ],
+                "lineCents": [
+                    0,
+                    10,
+                    0
+                ]
+            }
+        ]
+    },
+    "inputMethod": "Actual WindowsPlayer: same Rigidbody2D controller, E edge and uGUI button callback; not physical keyboard/mouse operation.",
+    "captureMethod": "Live main camera and camera-space uGUI rendered together to RenderTexture, no mock scene or compositing."
+}
